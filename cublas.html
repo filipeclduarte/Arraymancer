@@ -95,6 +95,9 @@ function main() {
   </div>
   <div id="global-links">
     <ul class="simple">
+    <li>
+      <a href="theindex.html">Index</a>
+    </li>
     </ul>
   </div>
   <div id="searchInputDiv">
@@ -118,29 +121,59 @@ function main() {
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#cublas_copy%2Cint%2Cptr.T%2Cint%2Cptr.T%2Cint"
-    title="cublas_copy[T: SomeFloat](n: int; x: ptr T; incx: int; y: ptr T; incy: int)"><wbr />cublas_<wbr />copy<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#cublas_dot%2Cint%2Cptr.T%2Cint%2Cptr.T%2Cint%2Cptr.T"
-    title="cublas_dot[T: SomeFloat](n: int; x: ptr T; incx: int; y: ptr T; incy: int; output: ptr T)"><wbr />cublas_<wbr />dot<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#cublas_axpy%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint"
-    title="cublas_axpy[T: SomeFloat](n: int; alpha: T; x: ptr T; incx: int; y: ptr T; incy: int)"><wbr />cublas_<wbr />axpy<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#cublas_scal%2Cint%2CT%2Cptr.T%2Cint"
-    title="cublas_scal[T: SomeFloat](n: int; alpha: T; x: ptr T; incx: int)"><wbr />cublas_<wbr />scal<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#cublas_geam%2CcublasOperation_t%2CcublasOperation_t%2Cint%2Cint%2CT%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint"
-    title="cublas_geam[T: SomeFloat](transa, transb: cublasOperation_t; m, n: int; alpha: T;
-                         A: ptr T; lda: int; beta: T; B: ptr T; ldb: int; C: ptr T; ldc: int)"><wbr />cublas_<wbr />geam<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#cublas_gemv%2CcublasOperation_t%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint"
-    title="cublas_gemv[T: SomeFloat](trans: cublasOperation_t; m, n: int; alpha: T; A: ptr T;
-                         lda: int; x: ptr T; incx: int; beta: T; y: ptr T; incy: int)"><wbr />cublas_<wbr />gemv<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#cublas_gemm%2CcublasOperation_t%2CcublasOperation_t%2Cint%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint"
-    title="cublas_gemm[T: SomeFloat](transa, transb: cublasOperation_t; m, n, k: int; alpha: T;
-                         A: ptr T; lda: int; B: ptr T; ldb: int; beta: T; C: ptr T; ldc: int)"><wbr />cublas_<wbr />gemm<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#cublas_gemmStridedBatched%2CcublasOperation_t%2CcublasOperation_t%2Cint%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cint%2Cptr.T%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cint%2Cint"
+      <ul class="simple nested-toc-section">cublas_gemmStridedBatched
+      <li><a class="reference" href="#cublas_gemmStridedBatched%2CcublasOperation_t%2CcublasOperation_t%2Cint%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cint%2Cptr.T%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cint%2Cint"
     title="cublas_gemmStridedBatched[T: SomeFloat](transa, transb: cublasOperation_t;
-                                       m, n, k: int; alpha: T; A: ptr T; lda: int;
-                                       strideA: int; B: ptr T; ldb: int; strideB: int;
-                                       beta: T; C: ptr T; ldc: int; strideC: int;
-                                       batchCount: int)"><wbr />cublas_<wbr />gemm<wbr />Strided<wbr />Batched<span class="attachedType"></span></a></li>
+                                        m, n, k: int; alpha: T; A: ptr T;
+                                        lda: int; strideA: int; B: ptr T;
+                                        ldb: int; strideB: int; beta: T;
+                                        C: ptr T; ldc: int; strideC: int;
+                                        batchCount: int)">cublas_gemmStridedBatched,<wbr>cublasOperation_t,<wbr>cublasOperation_t,<wbr>int,<wbr>int,<wbr>int,<wbr>T,<wbr>ptr.T,<wbr>int,<wbr>int,<wbr>ptr.T,<wbr>int,<wbr>int,<wbr>T,<wbr>ptr.T,<wbr>int,<wbr>int,<wbr>int</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">cublas_axpy
+      <li><a class="reference" href="#cublas_axpy%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint"
+    title="cublas_axpy[T: SomeFloat](n: int; alpha: T; x: ptr T; incx: int; y: ptr T;
+                          incy: int)">cublas_axpy,<wbr>int,<wbr>T,<wbr>ptr.T,<wbr>int,<wbr>ptr.T,<wbr>int</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">cublas_gemm
+      <li><a class="reference" href="#cublas_gemm%2CcublasOperation_t%2CcublasOperation_t%2Cint%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint"
+    title="cublas_gemm[T: SomeFloat](transa, transb: cublasOperation_t; m, n, k: int;
+                          alpha: T; A: ptr T; lda: int; B: ptr T; ldb: int;
+                          beta: T; C: ptr T; ldc: int)">cublas_gemm,<wbr>cublasOperation_t,<wbr>cublasOperation_t,<wbr>int,<wbr>int,<wbr>int,<wbr>T,<wbr>ptr.T,<wbr>int,<wbr>ptr.T,<wbr>int,<wbr>T,<wbr>ptr.T,<wbr>int</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">cublas_dot
+      <li><a class="reference" href="#cublas_dot%2Cint%2Cptr.T%2Cint%2Cptr.T%2Cint%2Cptr.T"
+    title="cublas_dot[T: SomeFloat](n: int; x: ptr T; incx: int; y: ptr T; incy: int;
+                         output: ptr T)">cublas_dot,<wbr>int,<wbr>ptr.T,<wbr>int,<wbr>ptr.T,<wbr>int,<wbr>ptr.T</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">cublas_copy
+      <li><a class="reference" href="#cublas_copy%2Cint%2Cptr.T%2Cint%2Cptr.T%2Cint"
+    title="cublas_copy[T: SomeFloat](n: int; x: ptr T; incx: int; y: ptr T; incy: int)">cublas_copy,<wbr>int,<wbr>ptr.T,<wbr>int,<wbr>ptr.T,<wbr>int</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">cublas_gemv
+      <li><a class="reference" href="#cublas_gemv%2CcublasOperation_t%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint"
+    title="cublas_gemv[T: SomeFloat](trans: cublasOperation_t; m, n: int; alpha: T;
+                          A: ptr T; lda: int; x: ptr T; incx: int; beta: T;
+                          y: ptr T; incy: int)">cublas_gemv,<wbr>cublasOperation_t,<wbr>int,<wbr>int,<wbr>T,<wbr>ptr.T,<wbr>int,<wbr>ptr.T,<wbr>int,<wbr>T,<wbr>ptr.T,<wbr>int</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">cublas_geam
+      <li><a class="reference" href="#cublas_geam%2CcublasOperation_t%2CcublasOperation_t%2Cint%2Cint%2CT%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint"
+    title="cublas_geam[T: SomeFloat](transa, transb: cublasOperation_t; m, n: int;
+                          alpha: T; A: ptr T; lda: int; beta: T; B: ptr T;
+                          ldb: int; C: ptr T; ldc: int)">cublas_geam,<wbr>cublasOperation_t,<wbr>cublasOperation_t,<wbr>int,<wbr>int,<wbr>T,<wbr>ptr.T,<wbr>int,<wbr>T,<wbr>ptr.T,<wbr>int,<wbr>ptr.T,<wbr>int</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">cublas_scal
+      <li><a class="reference" href="#cublas_scal%2Cint%2CT%2Cptr.T%2Cint"
+    title="cublas_scal[T: SomeFloat](n: int; alpha: T; x: ptr T; incx: int)">cublas_scal,<wbr>int,<wbr>T,<wbr>ptr.T,<wbr>int</a></li>
+
+  </ul>
 
   </ul>
 </li>
@@ -154,6 +187,11 @@ function main() {
 </ul>
 
   </div>
+  &nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/tensor/backend/cublas.nim#L1"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/tensor/backend/cublas.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
+
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
   
@@ -167,38 +205,39 @@ function main() {
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
 <a id="cublas_copy,int,ptr.T,int,ptr.T,int"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#cublas_copy%2Cint%2Cptr.T%2Cint%2Cptr.T%2Cint"><span class="Identifier">cublas_copy</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incx</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incy</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
+<dt><pre><span class="Keyword">proc</span> <a href="#cublas_copy%2Cint%2Cptr.T%2Cint%2Cptr.T%2Cint"><span class="Identifier">cublas_copy</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incx</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incy</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/cublas.nim#L29"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/tensor/backend/cublas.nim#L29"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/cublas.nim#L29" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/tensor/backend/cublas.nim#L29" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="cublas_dot,int,ptr.T,int,ptr.T,int,ptr.T"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#cublas_dot%2Cint%2Cptr.T%2Cint%2Cptr.T%2Cint%2Cptr.T"><span class="Identifier">cublas_dot</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incx</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incy</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
+<dt><pre><span class="Keyword">proc</span> <a href="#cublas_dot%2Cint%2Cptr.T%2Cint%2Cptr.T%2Cint%2Cptr.T"><span class="Identifier">cublas_dot</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incx</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incy</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span>
+                              <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/cublas.nim#L41"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/tensor/backend/cublas.nim#L41"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/cublas.nim#L41" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/tensor/backend/cublas.nim#L41" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="cublas_axpy,int,T,ptr.T,int,ptr.T,int"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#cublas_axpy%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint"><span class="Identifier">cublas_axpy</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">alpha</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incx</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incy</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
+<dt><pre><span class="Keyword">proc</span> <a href="#cublas_axpy%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint"><span class="Identifier">cublas_axpy</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">alpha</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incx</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span>
+                               <span class="Identifier">incy</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/cublas.nim#L55"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/tensor/backend/cublas.nim#L55"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/cublas.nim#L55" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/tensor/backend/cublas.nim#L55" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="cublas_scal,int,T,ptr.T,int"></a>
@@ -207,61 +246,62 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/cublas.nim#L73"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/tensor/backend/cublas.nim#L73"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/cublas.nim#L73" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/tensor/backend/cublas.nim#L73" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="cublas_geam,cublasOperation_t,cublasOperation_t,int,int,T,ptr.T,int,T,ptr.T,int,ptr.T,int"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#cublas_geam%2CcublasOperation_t%2CcublasOperation_t%2Cint%2Cint%2CT%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint"><span class="Identifier">cublas_geam</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">transa</span><span class="Other">,</span> <span class="Identifier">transb</span><span class="Other">:</span> <span class="Identifier">cublasOperation_t</span><span class="Other">;</span> <span class="Identifier">m</span><span class="Other">,</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">alpha</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span>
-                             <span class="Identifier">A</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">lda</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">beta</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">ldb</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">C</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span>
-                             <span class="Identifier">ldc</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
+<dt><pre><span class="Keyword">proc</span> <a href="#cublas_geam%2CcublasOperation_t%2CcublasOperation_t%2Cint%2Cint%2CT%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint"><span class="Identifier">cublas_geam</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">transa</span><span class="Other">,</span> <span class="Identifier">transb</span><span class="Other">:</span> <span class="Identifier">cublasOperation_t</span><span class="Other">;</span> <span class="Identifier">m</span><span class="Other">,</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span>
+                               <span class="Identifier">alpha</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">lda</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">beta</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span>
+                               <span class="Identifier">ldb</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">C</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">ldc</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/cublas.nim#L88"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/tensor/backend/cublas.nim#L88"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/cublas.nim#L88" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/tensor/backend/cublas.nim#L88" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="cublas_gemv,cublasOperation_t,int,int,T,ptr.T,int,ptr.T,int,T,ptr.T,int"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#cublas_gemv%2CcublasOperation_t%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint"><span class="Identifier">cublas_gemv</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">trans</span><span class="Other">:</span> <span class="Identifier">cublasOperation_t</span><span class="Other">;</span> <span class="Identifier">m</span><span class="Other">,</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">alpha</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span>
-                             <span class="Identifier">lda</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incx</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">beta</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incy</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
+<dt><pre><span class="Keyword">proc</span> <a href="#cublas_gemv%2CcublasOperation_t%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint"><span class="Identifier">cublas_gemv</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">trans</span><span class="Other">:</span> <span class="Identifier">cublasOperation_t</span><span class="Other">;</span> <span class="Identifier">m</span><span class="Other">,</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">alpha</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span>
+                               <span class="Identifier">A</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">lda</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incx</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">beta</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span>
+                               <span class="Identifier">y</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">incy</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/cublas.nim#L115"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/tensor/backend/cublas.nim#L115"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/cublas.nim#L115" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/tensor/backend/cublas.nim#L115" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="cublas_gemm,cublasOperation_t,cublasOperation_t,int,int,int,T,ptr.T,int,ptr.T,int,T,ptr.T,int"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#cublas_gemm%2CcublasOperation_t%2CcublasOperation_t%2Cint%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint"><span class="Identifier">cublas_gemm</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">transa</span><span class="Other">,</span> <span class="Identifier">transb</span><span class="Other">:</span> <span class="Identifier">cublasOperation_t</span><span class="Other">;</span> <span class="Identifier">m</span><span class="Other">,</span> <span class="Identifier">n</span><span class="Other">,</span> <span class="Identifier">k</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">alpha</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span>
-                             <span class="Identifier">A</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">lda</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">ldb</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">beta</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">C</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span>
-                             <span class="Identifier">ldc</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
+<dt><pre><span class="Keyword">proc</span> <a href="#cublas_gemm%2CcublasOperation_t%2CcublasOperation_t%2Cint%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cptr.T%2Cint%2CT%2Cptr.T%2Cint"><span class="Identifier">cublas_gemm</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">transa</span><span class="Other">,</span> <span class="Identifier">transb</span><span class="Other">:</span> <span class="Identifier">cublasOperation_t</span><span class="Other">;</span> <span class="Identifier">m</span><span class="Other">,</span> <span class="Identifier">n</span><span class="Other">,</span> <span class="Identifier">k</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span>
+                               <span class="Identifier">alpha</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">lda</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">ldb</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span>
+                               <span class="Identifier">beta</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">C</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">ldc</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/cublas.nim#L142"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/tensor/backend/cublas.nim#L142"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/cublas.nim#L142" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/tensor/backend/cublas.nim#L142" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="cublas_gemmStridedBatched,cublasOperation_t,cublasOperation_t,int,int,int,T,ptr.T,int,int,ptr.T,int,int,T,ptr.T,int,int,int"></a>
 <dt><pre><span class="Keyword">proc</span> <a href="#cublas_gemmStridedBatched%2CcublasOperation_t%2CcublasOperation_t%2Cint%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cint%2Cptr.T%2Cint%2Cint%2CT%2Cptr.T%2Cint%2Cint%2Cint"><span class="Identifier">cublas_gemmStridedBatched</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">SomeFloat</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">transa</span><span class="Other">,</span> <span class="Identifier">transb</span><span class="Other">:</span> <span class="Identifier">cublasOperation_t</span><span class="Other">;</span>
-    <span class="Identifier">m</span><span class="Other">,</span> <span class="Identifier">n</span><span class="Other">,</span> <span class="Identifier">k</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">alpha</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">lda</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">strideA</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">ldb</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">strideB</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span>
-    <span class="Identifier">beta</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">C</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">ldc</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">strideC</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">batchCount</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
+    <span class="Identifier">m</span><span class="Other">,</span> <span class="Identifier">n</span><span class="Other">,</span> <span class="Identifier">k</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">alpha</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">lda</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">strideA</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span>
+    <span class="Identifier">ldb</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">strideB</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">beta</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">C</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">ldc</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">strideC</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span>
+    <span class="Identifier">batchCount</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/cublas.nim#L172"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/tensor/backend/cublas.nim#L172"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/cublas.nim#L172" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/tensor/backend/cublas.nim#L172" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -269,7 +309,7 @@ class="link-seesrc" target="_blank">Source</a>
 <div class="section" id="19">
 <h1><a class="toc-backref" href="#19">Exports</a></h1>
 <dl class="item">
-<a href="cuda.html#layoutOnDevice"><span class="Identifier">layoutOnDevice</span></a>, <a href="cuda.html#newCudaStorage"><span class="Identifier">newCudaStorage</span></a>, <a class="reference external" href="cuda.html">cuda</a>, <a href="cuda.html#deallocCuda"><span class="Identifier">deallocCuda</span></a>, <a href="cuda.html#cudaMalloc"><span class="Identifier">cudaMalloc</span></a>
+<a href="cuda.html#layoutOnDevice,CudaTensor[T: SomeFloat]"><span class="Identifier">layoutOnDevice</span></a>, <a href="cuda.html#newCudaStorage,int"><span class="Identifier">newCudaStorage</span></a>, <a href="cuda.html#deallocCuda,ref."><span class="Identifier">deallocCuda</span></a>, <a href="cuda.html#cudaMalloc,Natural"><span class="Identifier">cudaMalloc</span></a>
 </dl></div>
 
   </div>
@@ -279,7 +319,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-04-19 14:11:21 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-12-27 09:29:23 UTC</small>
       </div>
     </div>
   </div>
@@ -298,6 +338,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="accessors_macros_syntax.html">accessors_macros_syntax</a></li>
 <li><a href="accessors_macros_write.html">accessors_macros_write</a></li>
 <li><a href="aggregate.html">aggregate</a></li>
+<li><a href="algorithms.html">algorithms</a></li>
 <li><a href="blas_l3_gemm.html">blas_l3_gemm</a></li>
 <li><a href="cublas.html">cublas</a></li>
 <li><a href="cuda.html">cuda</a></li>
@@ -321,7 +362,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="lapack.html">lapack</a></li>
 <li><a href="math_functions.html">math_functions</a></li>
 <li><a href="memory_optimization_hints.html">memory_optimization_hints</a></li>
-<li><a href="metadataArray.html">metadataArray</a></li>
 <li><a href="naive_l2_gemv.html">naive_l2_gemv</a></li>
 <li><a href="opencl_backend.html">opencl_backend</a></li>
 <li><a href="opencl_global_state.html">opencl_global_state</a></li>
@@ -345,7 +385,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="p_checks.html">p_checks</a></li>
 <li><a href="p_complex.html">p_complex</a></li>
 <li><a href="p_display.html">p_display</a></li>
-<li><a href="p_init_cpu.html">p_init_cpu</a></li>
+<li><a href="p_empty_tensors.html">p_empty_tensors</a></li>
 <li><a href="p_init_cuda.html">p_init_cuda</a></li>
 <li><a href="p_init_opencl.html">p_init_opencl</a></li>
 <li><a href="p_kernels_interface_cuda.html">p_kernels_interface_cuda</a></li>
@@ -357,7 +397,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="shapeshifting_cuda.html">shapeshifting_cuda</a></li>
 <li><a href="shapeshifting_opencl.html">shapeshifting_opencl</a></li>
 <li><a href="syntactic_sugar.html">syntactic_sugar</a></li>
-<li><a href="tensor.html">tensor</a></li>
 <li><a href="tensor_cuda.html">tensor_cuda</a></li>
 <li><a href="tensor_opencl.html">tensor_opencl</a></li>
 <li><a href="ufunc.html">ufunc</a></li>
@@ -397,11 +436,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="decomposition.html">Eigenvalue decomposition</a></li>
 <li><a href="decomposition_lapack.html">decomposition_lapack</a></li>
 <li><a href="decomposition_rand.html">Randomized Truncated SVD</a></li>
+<li><a href="distributions.html">distributions</a></li>
 <li><a href="init_colmajor.html">init_colmajor</a></li>
+<li><a href="kde.html">kde</a></li>
 <li><a href="kmeans.html">K-Means</a></li>
 <li><a href="least_squares.html">Least squares solver</a></li>
 <li><a href="least_squares_lapack.html">least_squares_lapack</a></li>
-<li><a href="linear_algebra.html">linear_algebra</a></li>
 <li><a href="linear_systems.html">Linear systems solver</a></li>
 <li><a href="overload.html">overload</a></li>
 <li><a href="pca.html">Principal Component Analysis (PCA)</a></li>
@@ -442,7 +482,6 @@ class="link-seesrc" target="_blank">Source</a>
           <li><a href="conv.html">conv</a></li>
 <li><a href="cudnn.html">cudnn</a></li>
 <li><a href="cudnn_conv_interface.html">cudnn_conv_interface</a></li>
-<li><a href="nn_primitives.html">nn_primitives</a></li>
 <li><a href="nnp_activation.html">Activations</a></li>
 <li><a href="nnp_conv2d_cudnn.html">Convolution 2D - CuDNN</a></li>
 <li><a href="nnp_convolution.html">Convolution 2D</a></li>
@@ -469,6 +508,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="ast_utils.html">ast_utils</a></li>
 <li><a href="compiler_optim_hints.html">compiler_optim_hints</a></li>
 <li><a href="cpuinfo_x86.html">cpuinfo_x86</a></li>
+<li><a href="datatypes.html">datatypes</a></li>
+<li><a href="deprecate.html">deprecate</a></li>
+<li><a href="dynamic_stack_arrays.html">dynamic_stack_arrays</a></li>
+<li><a href="foreach.html">foreach</a></li>
+<li><a href="foreach_common.html">foreach_common</a></li>
+<li><a href="foreach_staged.html">foreach_staged</a></li>
 <li><a href="functional.html">functional</a></li>
 <li><a href="gemm.html">gemm</a></li>
 <li><a href="gemm_packing.html">gemm_packing</a></li>
@@ -486,11 +531,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="gemm_ukernel_sse4_1.html">gemm_ukernel_sse4_1</a></li>
 <li><a href="gemm_utils.html">gemm_utils</a></li>
 <li><a href="global_config.html">global_config</a></li>
+<li><a href="initialization.html">initialization</a></li>
 <li><a href="math_ops_fusion.html">math_ops_fusion</a></li>
 <li><a href="memory.html">memory</a></li>
 <li><a href="nested_containers.html">nested_containers</a></li>
-<li><a href="nlp.html">nlp</a></li>
 <li><a href="openmp.html">openmp</a></li>
+<li><a href="p_raw_buffer_access.html">p_raw_buffer_access</a></li>
 <li><a href="sequninit.html">sequninit</a></li>
 <li><a href="simd.html">simd</a></li>
 <li><a href="tokenizers.html">tokenizers</a></li>

@@ -95,6 +95,9 @@ function main() {
   </div>
   <div id="global-links">
     <ul class="simple">
+    <li>
+      <a href="theindex.html">Index</a>
+    </li>
     </ul>
   </div>
   <div id="searchInputDiv">
@@ -118,10 +121,13 @@ function main() {
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#shape%2Cstring%2CMetadataArray"
-    title="shape(s: string; parent_shape: MetadataArray = initMetadataArray(0)): MetadataArray"><wbr />shape<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#shape%2CopenArray%5BT%5D%2CMetadataArray"
-    title="shape[T](s: openArray[T]; parent_shape: MetadataArray = initMetadataArray(0)): MetadataArray"><wbr />shape<span class="attachedType"></span></a></li>
+      <ul class="simple nested-toc-section">getShape
+      <li><a class="reference" href="#getShape%2Cstring"
+    title="getShape(s: string; parent_shape = Metadata()): Metadata">getShape,<wbr>string</a></li>
+  <li><a class="reference" href="#getShape%2CopenArray%5BT%5D"
+    title="getShape[T](s: openArray[T]; parent_shape = Metadata()): Metadata">getShape,<wbr>openArray[T]</a></li>
+
+  </ul>
 
   </ul>
 </li>
@@ -129,9 +135,9 @@ function main() {
   <a class="reference reference-toplevel" href="#15" id="65">Iterators</a>
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#flatIter.i%2Cstring"
-    title="flatIter(s: string): string"><wbr />flat<wbr />Iter<span class="attachedType"></span></a></li>
+    title="flatIter(s: string): string">flatIter</a></li>
   <li><a class="reference" href="#flatIter.i%2CopenArray%5BT%5D"
-    title="flatIter[T](s: openArray[T]): auto"><wbr />flat<wbr />Iter<span class="attachedType"></span></a></li>
+    title="flatIter[T](s: openArray[T]): auto">flatIter</a></li>
 
   </ul>
 </li>
@@ -139,6 +145,11 @@ function main() {
 </ul>
 
   </div>
+  &nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/private/nested_containers.nim#L1"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/private/nested_containers.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
+
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
   
@@ -146,33 +157,35 @@ function main() {
   <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
-<a class="reference external" href="metadataArray.html">metadataArray</a>
+<a class="reference external" href="dynamic_stack_arrays.html">dynamic_stack_arrays</a>, <a class="reference external" href="datatypes.html">datatypes</a>
 </dl></div>
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
-<a id="shape,string,MetadataArray"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#shape%2Cstring%2CMetadataArray"><span class="Identifier">shape</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">parent_shape</span><span class="Other">:</span> <a href="metadataArray.html#MetadataArray"><span class="Identifier">MetadataArray</span></a> <span class="Other">=</span> <span class="Identifier">initMetadataArray</span><span class="Other">(</span><span class="DecNumber">0</span><span class="Other">)</span><span class="Other">)</span><span class="Other">:</span> <a href="metadataArray.html#MetadataArray"><span class="Identifier">MetadataArray</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">noSideEffect</span><span class="Other">,</span> <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="getShape,string"></a>
+<dt><pre><span class="Keyword">func</span> <a href="#getShape%2Cstring"><span class="Identifier">getShape</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">parent_shape</span> <span class="Other">=</span> <a href="datatypes.html#Metadata"><span class="Identifier">Metadata</span></a><span class="Other">(</span><span class="Other">)</span><span class="Other">)</span><span class="Other">:</span> <a href="datatypes.html#Metadata"><span class="Identifier">Metadata</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
-Handle strings
+Handle strings / avoid interpretation as openarray[char]
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/private/nested_containers.nim#L32"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/private/nested_containers.nim#L25"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/private/nested_containers.nim#L32" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/private/nested_containers.nim#L25" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="shape,openArray[T],MetadataArray"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#shape%2CopenArray%5BT%5D%2CMetadataArray"><span class="Identifier">shape</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">openArray</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">parent_shape</span><span class="Other">:</span> <a href="metadataArray.html#MetadataArray"><span class="Identifier">MetadataArray</span></a> <span class="Other">=</span> <span class="Identifier">initMetadataArray</span><span class="Other">(</span><span class="DecNumber">0</span><span class="Other">)</span><span class="Other">)</span><span class="Other">:</span> <a href="metadataArray.html#MetadataArray"><span class="Identifier">MetadataArray</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">noSideEffect</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="getShape,openArray[T]"></a>
+<dt><pre><span class="Keyword">func</span> <a href="#getShape%2CopenArray%5BT%5D"><span class="Identifier">getShape</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">openArray</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">parent_shape</span> <span class="Other">=</span> <a href="datatypes.html#Metadata"><span class="Identifier">Metadata</span></a><span class="Other">(</span><span class="Other">)</span><span class="Other">)</span><span class="Other">:</span> <a href="datatypes.html#Metadata"><span class="Identifier">Metadata</span></a></pre></dt>
 <dd>
 
+Get the shape of nested seqs/arrays<dl class="docutils"><dt>Important ⚠: at each nesting level, only the length</dt>
+<dd>of the first element is used for the shape. Ensure before or after that seqs have the expected length or that the total number of elements matches the product of the dimensions.</dd>
+</dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/private/nested_containers.nim#L41"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/private/nested_containers.nim#L34"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/private/nested_containers.nim#L41" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/private/nested_containers.nim#L34" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -186,9 +199,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/private/nested_containers.nim#L19"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/private/nested_containers.nim#L12"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/private/nested_containers.nim#L19" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/private/nested_containers.nim#L12" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="flatIter.i,openArray[T]"></a>
@@ -197,9 +210,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Inline iterator on any-depth seq or array Returns values in order
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/private/nested_containers.nim#L22"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/private/nested_containers.nim#L15"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/private/nested_containers.nim#L22" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/private/nested_containers.nim#L15" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -212,7 +225,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-04-19 14:10:32 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-12-27 09:29:26 UTC</small>
       </div>
     </div>
   </div>
@@ -231,6 +244,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="accessors_macros_syntax.html">accessors_macros_syntax</a></li>
 <li><a href="accessors_macros_write.html">accessors_macros_write</a></li>
 <li><a href="aggregate.html">aggregate</a></li>
+<li><a href="algorithms.html">algorithms</a></li>
 <li><a href="blas_l3_gemm.html">blas_l3_gemm</a></li>
 <li><a href="cublas.html">cublas</a></li>
 <li><a href="cuda.html">cuda</a></li>
@@ -254,7 +268,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="lapack.html">lapack</a></li>
 <li><a href="math_functions.html">math_functions</a></li>
 <li><a href="memory_optimization_hints.html">memory_optimization_hints</a></li>
-<li><a href="metadataArray.html">metadataArray</a></li>
 <li><a href="naive_l2_gemv.html">naive_l2_gemv</a></li>
 <li><a href="opencl_backend.html">opencl_backend</a></li>
 <li><a href="opencl_global_state.html">opencl_global_state</a></li>
@@ -278,7 +291,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="p_checks.html">p_checks</a></li>
 <li><a href="p_complex.html">p_complex</a></li>
 <li><a href="p_display.html">p_display</a></li>
-<li><a href="p_init_cpu.html">p_init_cpu</a></li>
+<li><a href="p_empty_tensors.html">p_empty_tensors</a></li>
 <li><a href="p_init_cuda.html">p_init_cuda</a></li>
 <li><a href="p_init_opencl.html">p_init_opencl</a></li>
 <li><a href="p_kernels_interface_cuda.html">p_kernels_interface_cuda</a></li>
@@ -290,7 +303,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="shapeshifting_cuda.html">shapeshifting_cuda</a></li>
 <li><a href="shapeshifting_opencl.html">shapeshifting_opencl</a></li>
 <li><a href="syntactic_sugar.html">syntactic_sugar</a></li>
-<li><a href="tensor.html">tensor</a></li>
 <li><a href="tensor_cuda.html">tensor_cuda</a></li>
 <li><a href="tensor_opencl.html">tensor_opencl</a></li>
 <li><a href="ufunc.html">ufunc</a></li>
@@ -330,11 +342,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="decomposition.html">Eigenvalue decomposition</a></li>
 <li><a href="decomposition_lapack.html">decomposition_lapack</a></li>
 <li><a href="decomposition_rand.html">Randomized Truncated SVD</a></li>
+<li><a href="distributions.html">distributions</a></li>
 <li><a href="init_colmajor.html">init_colmajor</a></li>
+<li><a href="kde.html">kde</a></li>
 <li><a href="kmeans.html">K-Means</a></li>
 <li><a href="least_squares.html">Least squares solver</a></li>
 <li><a href="least_squares_lapack.html">least_squares_lapack</a></li>
-<li><a href="linear_algebra.html">linear_algebra</a></li>
 <li><a href="linear_systems.html">Linear systems solver</a></li>
 <li><a href="overload.html">overload</a></li>
 <li><a href="pca.html">Principal Component Analysis (PCA)</a></li>
@@ -375,7 +388,6 @@ class="link-seesrc" target="_blank">Source</a>
           <li><a href="conv.html">conv</a></li>
 <li><a href="cudnn.html">cudnn</a></li>
 <li><a href="cudnn_conv_interface.html">cudnn_conv_interface</a></li>
-<li><a href="nn_primitives.html">nn_primitives</a></li>
 <li><a href="nnp_activation.html">Activations</a></li>
 <li><a href="nnp_conv2d_cudnn.html">Convolution 2D - CuDNN</a></li>
 <li><a href="nnp_convolution.html">Convolution 2D</a></li>
@@ -402,6 +414,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="ast_utils.html">ast_utils</a></li>
 <li><a href="compiler_optim_hints.html">compiler_optim_hints</a></li>
 <li><a href="cpuinfo_x86.html">cpuinfo_x86</a></li>
+<li><a href="datatypes.html">datatypes</a></li>
+<li><a href="deprecate.html">deprecate</a></li>
+<li><a href="dynamic_stack_arrays.html">dynamic_stack_arrays</a></li>
+<li><a href="foreach.html">foreach</a></li>
+<li><a href="foreach_common.html">foreach_common</a></li>
+<li><a href="foreach_staged.html">foreach_staged</a></li>
 <li><a href="functional.html">functional</a></li>
 <li><a href="gemm.html">gemm</a></li>
 <li><a href="gemm_packing.html">gemm_packing</a></li>
@@ -419,11 +437,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="gemm_ukernel_sse4_1.html">gemm_ukernel_sse4_1</a></li>
 <li><a href="gemm_utils.html">gemm_utils</a></li>
 <li><a href="global_config.html">global_config</a></li>
+<li><a href="initialization.html">initialization</a></li>
 <li><a href="math_ops_fusion.html">math_ops_fusion</a></li>
 <li><a href="memory.html">memory</a></li>
 <li><a href="nested_containers.html">nested_containers</a></li>
-<li><a href="nlp.html">nlp</a></li>
 <li><a href="openmp.html">openmp</a></li>
+<li><a href="p_raw_buffer_access.html">p_raw_buffer_access</a></li>
 <li><a href="sequninit.html">sequninit</a></li>
 <li><a href="simd.html">simd</a></li>
 <li><a href="tokenizers.html">tokenizers</a></li>

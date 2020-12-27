@@ -95,6 +95,9 @@ function main() {
   </div>
   <div id="global-links">
     <ul class="simple">
+    <li>
+      <a href="theindex.html">Index</a>
+    </li>
     </ul>
   </div>
   <div id="searchInputDiv">
@@ -120,25 +123,35 @@ function main() {
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#ReshapeGate"
     title="ReshapeGate[TT] {.final.} = ref object of Gate[TT]
-  cached_input_shape: MetadataArray"><wbr />Reshape<wbr />Gate<span class="attachedType"></span></a></li>
+  cached_input_shape: Metadata">ReshapeGate</a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
+      <ul class="simple nested-toc-section">squeeze
+      <li><a class="reference" href="#squeeze%2C%2CNatural"
+    title="squeeze[TT](v`gensym0: Variable[TT]; axis`gensym0: Natural): Variable[TT]">squeeze,<wbr>,<wbr>Natural</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">reshape
       <li><a class="reference" href="#reshape%2CVariable%5BTT%5D%2Cvarargs%5Bint%5D"
-    title="reshape[TT](a: Variable[TT]; shape: varargs[int]): Variable[TT]"><wbr />reshape<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#reshape%2CVariable%5BTT%5D%2CMetadataArray"
-    title="reshape[TT](a: Variable[TT]; shape: MetadataArray): Variable[TT]"><wbr />reshape<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#flatten%2CVariable%5BTT%5D"
-    title="flatten[TT](a: Variable[TT]): Variable[TT]"><wbr />flatten<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#squeeze%2C%2CNatural"
-    title="squeeze[TT](v`gensym19939182: Variable[TT]; axis`gensym19939183: Natural): Variable[
-    TT]"><wbr />squeeze<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#unsqueeze%2C%2CNatural"
-    title="unsqueeze[TT](v`gensym19940060: Variable[TT]; axis`gensym19940061: Natural): Variable[
-    TT]"><wbr />unsqueeze<span class="attachedType"></span></a></li>
+    title="reshape[TT](a: Variable[TT]; shape: varargs[int]): Variable[TT]">reshape,<wbr>Variable[TT],<wbr>varargs[int]</a></li>
+  <li><a class="reference" href="#reshape%2CVariable%5BTT%5D%2CMetadata"
+    title="reshape[TT](a: Variable[TT]; shape: Metadata): Variable[TT]">reshape,<wbr>Variable[TT],<wbr>Metadata</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">flatten
+      <li><a class="reference" href="#flatten%2CVariable%5BTT%5D"
+    title="flatten[TT](a: Variable[TT]): Variable[TT]">flatten,<wbr>Variable[TT]</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">unsqueeze
+      <li><a class="reference" href="#unsqueeze%2C%2CNatural"
+    title="unsqueeze[TT](v`gensym1: Variable[TT]; axis`gensym1: Natural): Variable[TT]">unsqueeze,<wbr>,<wbr>Natural</a></li>
+
+  </ul>
 
   </ul>
 </li>
@@ -146,7 +159,7 @@ function main() {
   <a class="reference reference-toplevel" href="#18" id="68">Templates</a>
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#%5B%5D.t%2CVariable%5BTT%5D%2Cvarargs%5Buntyped%5D"
-    title="`[]`[TT](v: Variable[TT]; args: varargs[untyped]): Variable[TT]"><wbr />`[]`<span class="attachedType"></span></a></li>
+    title="`[]`[TT](v: Variable[TT]; args: varargs[untyped]): Variable[TT]">`[]`</a></li>
 
   </ul>
 </li>
@@ -154,6 +167,11 @@ function main() {
 </ul>
 
   </div>
+  &nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L1"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
+
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
   
@@ -168,15 +186,15 @@ function main() {
 <dl class="item">
 <a id="ReshapeGate"></a>
 <dt><pre><a href="gates_shapeshifting_views.html#ReshapeGate"><span class="Identifier">ReshapeGate</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">final</span></span><span class="Other">.}</span></span> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <a href="autograd_common.html#Gate"><span class="Identifier">Gate</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span>
-  <span class="Identifier">cached_input_shape</span><span class="Other">:</span> <a href="metadataArray.html#MetadataArray"><span class="Identifier">MetadataArray</span></a>
+  <span class="Identifier">cached_input_shape</span><span class="Other">:</span> <a href="datatypes.html#Metadata"><span class="Identifier">Metadata</span></a>
 </pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/autograd/gates_shapeshifting_views.nim#L56"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L56"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/autograd/gates_shapeshifting_views.nim#L56" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L56" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -196,13 +214,13 @@ class="link-seesrc" target="_blank">Source</a>
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/autograd/gates_shapeshifting_views.nim#L93"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L93"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/autograd/gates_shapeshifting_views.nim#L93" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L93" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="reshape,Variable[TT],MetadataArray"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#reshape%2CVariable%5BTT%5D%2CMetadataArray"><span class="Identifier">reshape</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">shape</span><span class="Other">:</span> <a href="metadataArray.html#MetadataArray"><span class="Identifier">MetadataArray</span></a><span class="Other">)</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span></pre></dt>
+<a id="reshape,Variable[TT],Metadata"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#reshape%2CVariable%5BTT%5D%2CMetadata"><span class="Identifier">reshape</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">shape</span><span class="Other">:</span> <a href="datatypes.html#Metadata"><span class="Identifier">Metadata</span></a><span class="Other">)</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span></pre></dt>
 <dd>
 
 <dl class="docutils"><dt>Input:</dt>
@@ -213,9 +231,9 @@ class="link-seesrc" target="_blank">Source</a>
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/autograd/gates_shapeshifting_views.nim#L99"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L99"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/autograd/gates_shapeshifting_views.nim#L99" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L99" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="flatten,Variable[TT]"></a>
@@ -229,33 +247,31 @@ class="link-seesrc" target="_blank">Source</a>
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/autograd/gates_shapeshifting_views.nim#L105"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L105"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/autograd/gates_shapeshifting_views.nim#L105" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L105" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="squeeze,,Natural"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#squeeze%2C%2CNatural"><span class="Identifier">squeeze</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v`gensym19939182</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">axis`gensym19939183</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span>
-    <span class="Identifier">TT</span><span class="Other">]</span></pre></dt>
+<dt><pre><span class="Keyword">proc</span> <a href="#squeeze%2C%2CNatural"><span class="Identifier">squeeze</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v`gensym0</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">axis`gensym0</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/autograd/gates_shapeshifting_views.nim#L152"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L152"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/autograd/gates_shapeshifting_views.nim#L152" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L152" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="unsqueeze,,Natural"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#unsqueeze%2C%2CNatural"><span class="Identifier">unsqueeze</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v`gensym19940060</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">axis`gensym19940061</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span>
-    <span class="Identifier">TT</span><span class="Other">]</span></pre></dt>
+<dt><pre><span class="Keyword">proc</span> <a href="#unsqueeze%2C%2CNatural"><span class="Identifier">unsqueeze</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v`gensym1</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">axis`gensym1</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <a href="autograd_common.html#Variable"><span class="Identifier">Variable</span></a><span class="Other">[</span><span class="Identifier">TT</span><span class="Other">]</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/autograd/gates_shapeshifting_views.nim#L153"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L153"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/autograd/gates_shapeshifting_views.nim#L153" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L153" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -278,9 +294,9 @@ Slice the tensor contained by the dynamic graph Variable<dl class="docutils"><dt
 </dl>
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/autograd/gates_shapeshifting_views.nim#L19"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L19"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/autograd/gates_shapeshifting_views.nim#L19" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/autograd/gates_shapeshifting_views.nim#L19" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -293,7 +309,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-04-19 14:11:25 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-12-27 09:28:36 UTC</small>
       </div>
     </div>
   </div>
@@ -312,6 +328,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="accessors_macros_syntax.html">accessors_macros_syntax</a></li>
 <li><a href="accessors_macros_write.html">accessors_macros_write</a></li>
 <li><a href="aggregate.html">aggregate</a></li>
+<li><a href="algorithms.html">algorithms</a></li>
 <li><a href="blas_l3_gemm.html">blas_l3_gemm</a></li>
 <li><a href="cublas.html">cublas</a></li>
 <li><a href="cuda.html">cuda</a></li>
@@ -335,7 +352,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="lapack.html">lapack</a></li>
 <li><a href="math_functions.html">math_functions</a></li>
 <li><a href="memory_optimization_hints.html">memory_optimization_hints</a></li>
-<li><a href="metadataArray.html">metadataArray</a></li>
 <li><a href="naive_l2_gemv.html">naive_l2_gemv</a></li>
 <li><a href="opencl_backend.html">opencl_backend</a></li>
 <li><a href="opencl_global_state.html">opencl_global_state</a></li>
@@ -359,7 +375,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="p_checks.html">p_checks</a></li>
 <li><a href="p_complex.html">p_complex</a></li>
 <li><a href="p_display.html">p_display</a></li>
-<li><a href="p_init_cpu.html">p_init_cpu</a></li>
+<li><a href="p_empty_tensors.html">p_empty_tensors</a></li>
 <li><a href="p_init_cuda.html">p_init_cuda</a></li>
 <li><a href="p_init_opencl.html">p_init_opencl</a></li>
 <li><a href="p_kernels_interface_cuda.html">p_kernels_interface_cuda</a></li>
@@ -371,7 +387,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="shapeshifting_cuda.html">shapeshifting_cuda</a></li>
 <li><a href="shapeshifting_opencl.html">shapeshifting_opencl</a></li>
 <li><a href="syntactic_sugar.html">syntactic_sugar</a></li>
-<li><a href="tensor.html">tensor</a></li>
 <li><a href="tensor_cuda.html">tensor_cuda</a></li>
 <li><a href="tensor_opencl.html">tensor_opencl</a></li>
 <li><a href="ufunc.html">ufunc</a></li>
@@ -411,11 +426,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="decomposition.html">Eigenvalue decomposition</a></li>
 <li><a href="decomposition_lapack.html">decomposition_lapack</a></li>
 <li><a href="decomposition_rand.html">Randomized Truncated SVD</a></li>
+<li><a href="distributions.html">distributions</a></li>
 <li><a href="init_colmajor.html">init_colmajor</a></li>
+<li><a href="kde.html">kde</a></li>
 <li><a href="kmeans.html">K-Means</a></li>
 <li><a href="least_squares.html">Least squares solver</a></li>
 <li><a href="least_squares_lapack.html">least_squares_lapack</a></li>
-<li><a href="linear_algebra.html">linear_algebra</a></li>
 <li><a href="linear_systems.html">Linear systems solver</a></li>
 <li><a href="overload.html">overload</a></li>
 <li><a href="pca.html">Principal Component Analysis (PCA)</a></li>
@@ -456,7 +472,6 @@ class="link-seesrc" target="_blank">Source</a>
           <li><a href="conv.html">conv</a></li>
 <li><a href="cudnn.html">cudnn</a></li>
 <li><a href="cudnn_conv_interface.html">cudnn_conv_interface</a></li>
-<li><a href="nn_primitives.html">nn_primitives</a></li>
 <li><a href="nnp_activation.html">Activations</a></li>
 <li><a href="nnp_conv2d_cudnn.html">Convolution 2D - CuDNN</a></li>
 <li><a href="nnp_convolution.html">Convolution 2D</a></li>
@@ -483,6 +498,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="ast_utils.html">ast_utils</a></li>
 <li><a href="compiler_optim_hints.html">compiler_optim_hints</a></li>
 <li><a href="cpuinfo_x86.html">cpuinfo_x86</a></li>
+<li><a href="datatypes.html">datatypes</a></li>
+<li><a href="deprecate.html">deprecate</a></li>
+<li><a href="dynamic_stack_arrays.html">dynamic_stack_arrays</a></li>
+<li><a href="foreach.html">foreach</a></li>
+<li><a href="foreach_common.html">foreach_common</a></li>
+<li><a href="foreach_staged.html">foreach_staged</a></li>
 <li><a href="functional.html">functional</a></li>
 <li><a href="gemm.html">gemm</a></li>
 <li><a href="gemm_packing.html">gemm_packing</a></li>
@@ -500,11 +521,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="gemm_ukernel_sse4_1.html">gemm_ukernel_sse4_1</a></li>
 <li><a href="gemm_utils.html">gemm_utils</a></li>
 <li><a href="global_config.html">global_config</a></li>
+<li><a href="initialization.html">initialization</a></li>
 <li><a href="math_ops_fusion.html">math_ops_fusion</a></li>
 <li><a href="memory.html">memory</a></li>
 <li><a href="nested_containers.html">nested_containers</a></li>
-<li><a href="nlp.html">nlp</a></li>
 <li><a href="openmp.html">openmp</a></li>
+<li><a href="p_raw_buffer_access.html">p_raw_buffer_access</a></li>
 <li><a href="sequninit.html">sequninit</a></li>
 <li><a href="simd.html">simd</a></li>
 <li><a href="tokenizers.html">tokenizers</a></li>

@@ -95,6 +95,9 @@ function main() {
   </div>
   <div id="global-links">
     <ul class="simple">
+    <li>
+      <a href="theindex.html">Index</a>
+    </li>
     </ul>
   </div>
   <div id="searchInputDiv">
@@ -110,23 +113,32 @@ function main() {
   </div>
   <ul class="simple simple-toc" id="toc-list">
 <li>
+  <a class="reference reference-toplevel" href="#6" id="56">Imports</a>
+  <ul class="simple simple-toc-section">
+    
+  </ul>
+</li>
+<li>
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#nnp_status"
     title="nnp_status {.size: 4.} = enum
-  nnp_status_success = 0,       ## * NNPACK function was called with batch_size == 0.
+  nnp_status_success = 0,   ## * NNPACK function was called with batch_size == 0.
   nnp_status_invalid_batch_size = 2, ## * NNPACK function was called with channels == 0.
   nnp_status_invalid_channels = 3, ## * NNPACK function was called with input_channels == 0.
   nnp_status_invalid_input_channels = 4, ## * NNPACK function was called with output_channels == 0.
   nnp_status_invalid_output_channels = 5, ## * NNPACK function was called with input_size.height == 0 or input_size.width == 0
   nnp_status_invalid_input_size = 10, ## * NNPACK function was called with input_stride.height == 0 or input_stride.width == 0
   nnp_status_invalid_input_stride = 11, ## * NNPACK function was called with input_padding not less than respective kernel (or pooling) size, i.e.:
-                                     ## 
-                                     ##   - input_padding.left   &gt;= kernel_size.width  (&gt;= pooling_size.width)
-                                     ##   - input_padding.right  &gt;= kernel_size.width  (&gt;= pooling_size.width)
-                                     ##   - input_padding.top    &gt;= kernel_size.height (&gt;= pooling_size.height)
-                                     ##   - input_padding.bottom &gt;= kernel_size.height (&gt;= pooling_size.height)
-                                     ## 
+                                         ## 
+                                         ##   - input_padding.left   &gt;= kernel_size.width  (&gt;= pooling_size.width)
+                                         ##   
+                                         ## - input_padding.right  &gt;= kernel_size.width  (&gt;= pooling_size.width)
+                                         ##   
+                                         ## - input_padding.top    &gt;= kernel_size.height (&gt;= pooling_size.height)
+                                         ##   
+                                         ## - input_padding.bottom &gt;= kernel_size.height (&gt;= pooling_size.height)
+                                         ## 
   nnp_status_invalid_input_padding = 12, ## * NNPACK function was called with kernel_size.height == 0 or kernel_size.width == 0
   nnp_status_invalid_kernel_size = 13, ## * NNPACK function was called with pooling_size.height == 0 or pooling_size.width == 0
   nnp_status_invalid_pooling_size = 14, ## * NNPACK function was called with pooling_stride.height == 0 or pooling_stride.width == 0
@@ -147,13 +159,13 @@ function main() {
   nnp_status_unsupported_hardware = 51, ## * NNPACK failed to allocate memory for temporary buffers
   nnp_status_out_of_memory = 52, ## * Scratch space buffer is too small
   nnp_status_insufficient_buffer = 53, ## * Scratch space buffer is not properly aligned
-  nnp_status_misaligned_buffer = 54"><wbr />nnp_<wbr />status<span class="attachedType"></span></a></li>
+  nnp_status_misaligned_buffer = 54">nnp_status</a></li>
   <li><a class="reference" href="#pthreadpool_t"
-    title="pthreadpool_t = pointer"><wbr />pthreadpool_<wbr />t<span class="attachedType"></span></a></li>
+    title="pthreadpool_t = pointer">pthreadpool_t</a></li>
   <li><a class="reference" href="#nnp_activation"
     title="nnp_activation {.size: 4.} = enum
-  nnp_activation_identity = 0,  ## * ReLU activation f(x) := max(0, x)
-  nnp_activation_relu = 1"><wbr />nnp_<wbr />activation<span class="attachedType"></span></a></li>
+  nnp_activation_identity = 0, ## * ReLU activation f(x) := max(0, x)
+  nnp_activation_relu = 1">nnp_activation</a></li>
   <li><a class="reference" href="#nnp_convolution_algorithm"
     title="nnp_convolution_algorithm {.size: 4.} = enum
   nnp_convolution_algorithm_auto = 0, ## * Tiled convolution based on 2D Fourier transform with 8x8 blocks. Supports kernels up to 8x8.
@@ -162,36 +174,38 @@ function main() {
   nnp_convolution_algorithm_wt8x8 = 3, ## * Direct convolution via implicit GEMM.
   nnp_convolution_algorithm_implicit_gemm = 4, ## * Direct convolution implementation.
   nnp_convolution_algorithm_direct = 5, ## *
-                                     ##  Tiled convolution based on 2D Winograd transform F(3x3, 6x6) with 8x8 blocks in FP16.
-                                     ##  Supports only 3x3 kernels. Implemented only for new ARM processors (with NEON-HP),
-                                     ##  on non-supported processors falls back to nnp_convolution_algorithm_wt8x8.
-                                     ## 
-  nnp_convolution_algorithm_wt8x8_fp16 = 6"><wbr />nnp_<wbr />convolution_<wbr />algorithm<span class="attachedType"></span></a></li>
+                                         ##  Tiled convolution based on 2D Winograd transform F(3x3, 6x6) with 8x8 blocks in FP16.
+                                         ##  Supports only 3x3 kernels. Implemented only for new ARM processors (with NEON-HP),
+                                         ##  on non-supported processors falls back to nnp_convolution_algorithm_wt8x8.
+                                         ## 
+  nnp_convolution_algorithm_wt8x8_fp16 = 6">nnp_convolution_algorithm</a></li>
   <li><a class="reference" href="#nnp_convolution_transform_strategy"
     title="nnp_convolution_transform_strategy {.size: 4.} = enum
   nnp_convolution_transform_strategy_compute = 1,
   nnp_convolution_transform_strategy_precompute = 2,
-  nnp_convolution_transform_strategy_reuse = 3"><wbr />nnp_<wbr />convolution_<wbr />transform_<wbr />strategy<span class="attachedType"></span></a></li>
+  nnp_convolution_transform_strategy_reuse = 3">nnp_convolution_transform_strategy</a></li>
   <li><a class="reference" href="#nnp_size"
     title="nnp_size {.bycopy.} = object
-  width*: csize ## * Width (horizontal size) of an image, kernel, or pooling filter.
-              ## * Height (vertical size) of an image, kernel, or pooling filter.
-  height*: csize"><wbr />nnp_<wbr />size<span class="attachedType"></span></a></li>
+  width*: csize_t ## * Width (horizontal size) of an image, kernel, or pooling filter.
+                  ## 
+                  ## * Height (vertical size) of an image, kernel, or pooling filter.
+  height*: csize_t">nnp_size</a></li>
   <li><a class="reference" href="#nnp_padding"
     title="nnp_padding {.bycopy.} = object
-  top*: csize                  ## * Padding above the image data
-            ## * Padding on the right of image data
-  right*: csize                ## * Padding below the image data
-  bottom*: csize               ## * Padding on the left of image data
-  left*: csize"><wbr />nnp_<wbr />padding<span class="attachedType"></span></a></li>
+  top*: csize_t              ## * Padding above the image data
+                             ## * Padding on the right of image data
+  right*: csize_t            ## * Padding below the image data
+  bottom*: csize_t           ## * Padding on the left of image data
+  left*: csize_t">nnp_padding</a></li>
   <li><a class="reference" href="#nnp_profile"
     title="nnp_profile {.bycopy.} = object
-  total*: cdouble              ## * Time spent inside the function call, in seconds.
-                ## * Time spend on transformation of the input or input gradient tensor, in seconds.
-  input_transform*: cdouble    ## * Time spend on transformation of the kernel or kernel gradient tensor, in seconds.
-  kernel_transform*: cdouble   ## * Time spend on transformation of the output or output gradient tensor, in seconds.
-  output_transform*: cdouble   ## * Time spend on multiplication-accumulation of transformed coefficients, in seconds.
-  block_multiplication*: cdouble"><wbr />nnp_<wbr />profile<span class="attachedType"></span></a></li>
+  total*: cdouble            ## * Time spent inside the function call, in seconds.
+                             ## 
+                             ## * Time spend on transformation of the input or input gradient tensor, in seconds.
+  input_transform*: cdouble  ## * Time spend on transformation of the kernel or kernel gradient tensor, in seconds.
+  kernel_transform*: cdouble ## * Time spend on transformation of the output or output gradient tensor, in seconds.
+  output_transform*: cdouble ## * Time spend on multiplication-accumulation of transformed coefficients, in seconds.
+  block_multiplication*: cdouble">nnp_profile</a></li>
 
   </ul>
 </li>
@@ -199,100 +213,147 @@ function main() {
   <a class="reference reference-toplevel" href="#10" id="60">Consts</a>
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#nnp_status_invalid_output_subsampling"
-    title="nnp_status_invalid_output_subsampling = nnp_status_invalid_kernel_size"><wbr />nnp_<wbr />status_<wbr />invalid_<wbr />output_<wbr />subsampling<span class="attachedType"></span></a></li>
+    title="nnp_status_invalid_output_subsampling = nnp_status_invalid_kernel_size">nnp_status_invalid_output_subsampling</a></li>
   <li><a class="reference" href="#nnp_status_invalid_activation"
-    title="nnp_status_invalid_activation = nnp_status_invalid_pooling_size"><wbr />nnp_<wbr />status_<wbr />invalid_<wbr />activation<span class="attachedType"></span></a></li>
+    title="nnp_status_invalid_activation = nnp_status_invalid_pooling_size">nnp_status_invalid_activation</a></li>
   <li><a class="reference" href="#nnp_status_invalid_activation_parameters"
-    title="nnp_status_invalid_activation_parameters = nnp_status_invalid_pooling_stride"><wbr />nnp_<wbr />status_<wbr />invalid_<wbr />activation_<wbr />parameters<span class="attachedType"></span></a></li>
+    title="nnp_status_invalid_activation_parameters = nnp_status_invalid_pooling_stride">nnp_status_invalid_activation_parameters</a></li>
   <li><a class="reference" href="#nnp_convolution_transform_strategy_block_based"
-    title="nnp_convolution_transform_strategy_block_based = nnp_convolution_transform_strategy_compute"><wbr />nnp_<wbr />convolution_<wbr />transform_<wbr />strategy_<wbr />block_<wbr />based<span class="attachedType"></span></a></li>
+    title="nnp_convolution_transform_strategy_block_based = nnp_convolution_transform_strategy_compute">nnp_convolution_transform_strategy_block_based</a></li>
   <li><a class="reference" href="#nnp_convolution_transform_strategy_tuple_based"
-    title="nnp_convolution_transform_strategy_tuple_based = nnp_convolution_transform_strategy_compute"><wbr />nnp_<wbr />convolution_<wbr />transform_<wbr />strategy_<wbr />tuple_<wbr />based<span class="attachedType"></span></a></li>
+    title="nnp_convolution_transform_strategy_tuple_based = nnp_convolution_transform_strategy_compute">nnp_convolution_transform_strategy_tuple_based</a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#nnp_initialize"
-    title="nnp_initialize(): nnp_status"><wbr />nnp_<wbr />initialize<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#nnp_deinitialize"
-    title="nnp_deinitialize(): nnp_status"><wbr />nnp_<wbr />deinitialize<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#nnp_convolution_output%2Cnnp_convolution_algorithm%2Ccsize%2Ccsize%2Ccsize%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"
-    title="nnp_convolution_output(algorithm: nnp_convolution_algorithm; batch_size: csize;
-                       input_channels: csize; output_channels: csize;
+      <ul class="simple nested-toc-section">nnp_fully_connected_output
+      <li><a class="reference" href="#nnp_fully_connected_output%2Ccsize_t%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t%2Cptr.nnp_profile"
+    title="nnp_fully_connected_output(batch_size: csize_t; input_channels: csize_t;
+                           output_channels: csize_t; input: ptr cfloat;
+                           kernel: ptr cfloat; output: ptr cfloat;
+                           threadpool: pthreadpool_t; profile: ptr nnp_profile): nnp_status">nnp_fully_connected_output,<wbr>csize_t,<wbr>csize_t,<wbr>csize_t,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>pthreadpool_t,<wbr>ptr.nnp_profile</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_convolution_input_gradient
+      <li><a class="reference" href="#nnp_convolution_input_gradient%2Cnnp_convolution_algorithm%2Ccsize_t%2Ccsize_t%2Ccsize_t%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize_t%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"
+    title="nnp_convolution_input_gradient(algorithm: nnp_convolution_algorithm;
+                               batch_size: csize_t; input_channels: csize_t;
+                               output_channels: csize_t; input_size: nnp_size;
+                               input_padding: nnp_padding;
+                               kernel_size: nnp_size; grad_output: ptr cfloat;
+                               kernel: ptr cfloat; grad_input: ptr cfloat;
+                               workspace_buffer: pointer = nil;
+                               workspace_size: ptr csize_t = nil; activation: nnp_activation = nnp_activation_identity;
+                               activation_parameters: pointer = nil;
+                               threadpool: pthreadpool_t = nil;
+                               profile: ptr nnp_profile = nil): nnp_status">nnp_convolution_input_gradient,<wbr>nnp_convolution_algorithm,<wbr>csize_t,<wbr>csize_t,<wbr>csize_t,<wbr>nnp_size,<wbr>nnp_padding,<wbr>nnp_size,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>pointer,<wbr>ptr.csize_t,<wbr>nnp_activation,<wbr>pointer,<wbr>pthreadpool_t,<wbr>ptr.nnp_profile</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_softmax_output
+      <li><a class="reference" href="#nnp_softmax_output%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"
+    title="nnp_softmax_output(batch_size: csize_t; channels: csize_t; input: ptr cfloat;
+                   output: ptr cfloat; threadpool: pthreadpool_t): nnp_status">nnp_softmax_output,<wbr>csize_t,<wbr>csize_t,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>pthreadpool_t</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_relu_output
+      <li><a class="reference" href="#nnp_relu_output%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cptr.cfloat%2Ccfloat%2Cpthreadpool_t"
+    title="nnp_relu_output(batch_size: csize_t; channels: csize_t; input: ptr cfloat;
+                output: ptr cfloat; negative_slope: cfloat;
+                threadpool: pthreadpool_t): nnp_status">nnp_relu_output,<wbr>csize_t,<wbr>csize_t,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>cfloat,<wbr>pthreadpool_t</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_fully_connected_inference_f16f32
+      <li><a class="reference" href="#nnp_fully_connected_inference_f16f32%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cpointer%2Cptr.cfloat%2Cpthreadpool_t"
+    title="nnp_fully_connected_inference_f16f32(input_channels: csize_t;
+                                     output_channels: csize_t;
+                                     input: ptr cfloat; kernel: pointer;
+                                     output: ptr cfloat;
+                                     threadpool: pthreadpool_t): nnp_status">nnp_fully_connected_inference_f16f32,<wbr>csize_t,<wbr>csize_t,<wbr>ptr.cfloat,<wbr>pointer,<wbr>ptr.cfloat,<wbr>pthreadpool_t</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_max_pooling_output
+      <li><a class="reference" href="#nnp_max_pooling_output%2Ccsize_t%2Ccsize_t%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"
+    title="nnp_max_pooling_output(batch_size: csize_t; channels: csize_t;
                        input_size: nnp_size; input_padding: nnp_padding;
-                       kernel_size: nnp_size; input: ptr cfloat; kernel: ptr cfloat;
-                       bias: ptr cfloat; output: ptr cfloat;
-                       workspace_buffer: pointer = nil;
-                       workspace_size: ptr csize = nil;
+                       pooling_size: nnp_size; pooling_stride: nnp_size;
+                       input: ptr cfloat; output: ptr cfloat;
+                       threadpool: pthreadpool_t): nnp_status">nnp_max_pooling_output,<wbr>csize_t,<wbr>csize_t,<wbr>nnp_size,<wbr>nnp_padding,<wbr>nnp_size,<wbr>nnp_size,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>pthreadpool_t</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_deinitialize
+      <li><a class="reference" href="#nnp_deinitialize"
+    title="nnp_deinitialize(): nnp_status">nnp_deinitialize</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_convolution_inference
+      <li><a class="reference" href="#nnp_convolution_inference%2Cnnp_convolution_algorithm%2Cnnp_convolution_transform_strategy%2Ccsize_t%2Ccsize_t%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize_t%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"
+    title="nnp_convolution_inference(algorithm: nnp_convolution_algorithm;
+    transform_strategy: nnp_convolution_transform_strategy;
+                          input_channels: csize_t; output_channels: csize_t;
+                          input_size: nnp_size; input_padding: nnp_padding;
+                          kernel_size: nnp_size; output_subsampling: nnp_size;
+                          input: ptr cfloat; kernel: ptr cfloat;
+                          bias: ptr cfloat; output: ptr cfloat;
+                          workspace_buffer: pointer;
+                          workspace_size: ptr csize_t;
+                          activation: nnp_activation;
+                          activation_parameters: pointer;
+                          threadpool: pthreadpool_t; profile: ptr nnp_profile): nnp_status">nnp_convolution_inference,<wbr>nnp_convolution_algorithm,<wbr>nnp_convolution_transform_strategy,<wbr>csize_t,<wbr>csize_t,<wbr>nnp_size,<wbr>nnp_padding,<wbr>nnp_size,<wbr>nnp_size,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>pointer,<wbr>ptr.csize_t,<wbr>nnp_activation,<wbr>pointer,<wbr>pthreadpool_t,<wbr>ptr.nnp_profile</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_relu_input_gradient
+      <li><a class="reference" href="#nnp_relu_input_gradient%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Ccfloat%2Cpthreadpool_t"
+    title="nnp_relu_input_gradient(batch_size: csize_t; channels: csize_t;
+                        grad_output: ptr cfloat; input: ptr cfloat;
+                        grad_input: ptr cfloat; negative_slope: cfloat;
+                        threadpool: pthreadpool_t): nnp_status">nnp_relu_input_gradient,<wbr>csize_t,<wbr>csize_t,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>cfloat,<wbr>pthreadpool_t</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_convolution_output
+      <li><a class="reference" href="#nnp_convolution_output%2Cnnp_convolution_algorithm%2Ccsize_t%2Ccsize_t%2Ccsize_t%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize_t%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"
+    title="nnp_convolution_output(algorithm: nnp_convolution_algorithm;
+                       batch_size: csize_t; input_channels: csize_t;
+                       output_channels: csize_t; input_size: nnp_size;
+                       input_padding: nnp_padding; kernel_size: nnp_size;
+                       input: ptr cfloat; kernel: ptr cfloat; bias: ptr cfloat;
+                       output: ptr cfloat; workspace_buffer: pointer = nil;
+                       workspace_size: ptr csize_t = nil;
                        activation: nnp_activation = nnp_activation_identity;
                        activation_parameters: pointer = nil;
                        threadpool: pthreadpool_t = nil;
-                       profile: ptr nnp_profile = nil): nnp_status"><wbr />nnp_<wbr />convolution_<wbr />output<span class="attachedType">pthreadpool_t</span></a></li>
-  <li><a class="reference" href="#nnp_convolution_input_gradient%2Cnnp_convolution_algorithm%2Ccsize%2Ccsize%2Ccsize%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"
-    title="nnp_convolution_input_gradient(algorithm: nnp_convolution_algorithm;
-                               batch_size: csize; input_channels: csize;
-                               output_channels: csize; input_size: nnp_size;
-                               input_padding: nnp_padding; kernel_size: nnp_size;
-                               grad_output: ptr cfloat; kernel: ptr cfloat;
-                               grad_input: ptr cfloat;
-                               workspace_buffer: pointer = nil;
-                               workspace_size: ptr csize = nil; activation: nnp_activation = nnp_activation_identity;
-                               activation_parameters: pointer = nil;
-                               threadpool: pthreadpool_t = nil;
-                               profile: ptr nnp_profile = nil): nnp_status"><wbr />nnp_<wbr />convolution_<wbr />input_<wbr />gradient<span class="attachedType">pthreadpool_t</span></a></li>
-  <li><a class="reference" href="#nnp_convolution_kernel_gradient%2Cnnp_convolution_algorithm%2Ccsize%2Ccsize%2Ccsize%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"
+                       profile: ptr nnp_profile = nil): nnp_status">nnp_convolution_output,<wbr>nnp_convolution_algorithm,<wbr>csize_t,<wbr>csize_t,<wbr>csize_t,<wbr>nnp_size,<wbr>nnp_padding,<wbr>nnp_size,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>pointer,<wbr>ptr.csize_t,<wbr>nnp_activation,<wbr>pointer,<wbr>pthreadpool_t,<wbr>ptr.nnp_profile</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_convolution_kernel_gradient
+      <li><a class="reference" href="#nnp_convolution_kernel_gradient%2Cnnp_convolution_algorithm%2Ccsize_t%2Ccsize_t%2Ccsize_t%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize_t%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"
     title="nnp_convolution_kernel_gradient(algorithm: nnp_convolution_algorithm;
-                                batch_size: csize; input_channels: csize;
-                                output_channels: csize; input_size: nnp_size;
-                                input_padding: nnp_padding; kernel_size: nnp_size;
-                                input: ptr cfloat; grad_output: ptr cfloat;
+                                batch_size: csize_t; input_channels: csize_t;
+                                output_channels: csize_t; input_size: nnp_size;
+                                input_padding: nnp_padding;
+                                kernel_size: nnp_size; input: ptr cfloat;
+                                grad_output: ptr cfloat;
                                 grad_kernel: ptr cfloat;
                                 workspace_buffer: pointer = nil;
-                                workspace_size: ptr csize = nil; activation: nnp_activation = nnp_activation_identity;
+                                workspace_size: ptr csize_t = nil; activation: nnp_activation = nnp_activation_identity;
                                 activation_parameters: pointer = nil;
                                 threadpool: pthreadpool_t = nil;
-                                profile: ptr nnp_profile = nil): nnp_status"><wbr />nnp_<wbr />convolution_<wbr />kernel_<wbr />gradient<span class="attachedType">pthreadpool_t</span></a></li>
-  <li><a class="reference" href="#nnp_convolution_inference%2Cnnp_convolution_algorithm%2Cnnp_convolution_transform_strategy%2Ccsize%2Ccsize%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"
-    title="nnp_convolution_inference(algorithm: nnp_convolution_algorithm; transform_strategy: nnp_convolution_transform_strategy;
-                          input_channels: csize; output_channels: csize;
-                          input_size: nnp_size; input_padding: nnp_padding;
-                          kernel_size: nnp_size; output_subsampling: nnp_size;
-                          input: ptr cfloat; kernel: ptr cfloat; bias: ptr cfloat;
-                          output: ptr cfloat; workspace_buffer: pointer;
-                          workspace_size: ptr csize; activation: nnp_activation;
-                          activation_parameters: pointer;
-                          threadpool: pthreadpool_t; profile: ptr nnp_profile): nnp_status"><wbr />nnp_<wbr />convolution_<wbr />inference<span class="attachedType">pthreadpool_t</span></a></li>
-  <li><a class="reference" href="#nnp_fully_connected_output%2Ccsize%2Ccsize%2Ccsize%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t%2Cptr.nnp_profile"
-    title="nnp_fully_connected_output(batch_size: csize; input_channels: csize;
-                           output_channels: csize; input: ptr cfloat;
-                           kernel: ptr cfloat; output: ptr cfloat;
-                           threadpool: pthreadpool_t; profile: ptr nnp_profile): nnp_status"><wbr />nnp_<wbr />fully_<wbr />connected_<wbr />output<span class="attachedType">pthreadpool_t</span></a></li>
-  <li><a class="reference" href="#nnp_fully_connected_inference%2Ccsize%2Ccsize%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"
-    title="nnp_fully_connected_inference(input_channels: csize; output_channels: csize;
+                                profile: ptr nnp_profile = nil): nnp_status">nnp_convolution_kernel_gradient,<wbr>nnp_convolution_algorithm,<wbr>csize_t,<wbr>csize_t,<wbr>csize_t,<wbr>nnp_size,<wbr>nnp_padding,<wbr>nnp_size,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>pointer,<wbr>ptr.csize_t,<wbr>nnp_activation,<wbr>pointer,<wbr>pthreadpool_t,<wbr>ptr.nnp_profile</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_fully_connected_inference
+      <li><a class="reference" href="#nnp_fully_connected_inference%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"
+    title="nnp_fully_connected_inference(input_channels: csize_t; output_channels: csize_t;
                               input: ptr cfloat; kernel: ptr cfloat;
-                              output: ptr cfloat; threadpool: pthreadpool_t): nnp_status"><wbr />nnp_<wbr />fully_<wbr />connected_<wbr />inference<span class="attachedType">pthreadpool_t</span></a></li>
-  <li><a class="reference" href="#nnp_fully_connected_inference_f16f32%2Ccsize%2Ccsize%2Cptr.cfloat%2Cpointer%2Cptr.cfloat%2Cpthreadpool_t"
-    title="nnp_fully_connected_inference_f16f32(input_channels: csize;
-                                     output_channels: csize; input: ptr cfloat;
-                                     kernel: pointer; output: ptr cfloat;
-                                     threadpool: pthreadpool_t): nnp_status"><wbr />nnp_<wbr />fully_<wbr />connected_<wbr />inference_<wbr />f16f32<span class="attachedType">pthreadpool_t</span></a></li>
-  <li><a class="reference" href="#nnp_max_pooling_output%2Ccsize%2Ccsize%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"
-    title="nnp_max_pooling_output(batch_size: csize; channels: csize; input_size: nnp_size;
-                       input_padding: nnp_padding; pooling_size: nnp_size;
-                       pooling_stride: nnp_size; input: ptr cfloat;
-                       output: ptr cfloat; threadpool: pthreadpool_t): nnp_status"><wbr />nnp_<wbr />max_<wbr />pooling_<wbr />output<span class="attachedType">pthreadpool_t</span></a></li>
-  <li><a class="reference" href="#nnp_softmax_output%2Ccsize%2Ccsize%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"
-    title="nnp_softmax_output(batch_size: csize; channels: csize; input: ptr cfloat;
-                   output: ptr cfloat; threadpool: pthreadpool_t): nnp_status"><wbr />nnp_<wbr />softmax_<wbr />output<span class="attachedType">pthreadpool_t</span></a></li>
-  <li><a class="reference" href="#nnp_relu_output%2Ccsize%2Ccsize%2Cptr.cfloat%2Cptr.cfloat%2Ccfloat%2Cpthreadpool_t"
-    title="nnp_relu_output(batch_size: csize; channels: csize; input: ptr cfloat;
-                output: ptr cfloat; negative_slope: cfloat; threadpool: pthreadpool_t): nnp_status"><wbr />nnp_<wbr />relu_<wbr />output<span class="attachedType">pthreadpool_t</span></a></li>
-  <li><a class="reference" href="#nnp_relu_input_gradient%2Ccsize%2Ccsize%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Ccfloat%2Cpthreadpool_t"
-    title="nnp_relu_input_gradient(batch_size: csize; channels: csize; grad_output: ptr cfloat;
-                        input: ptr cfloat; grad_input: ptr cfloat;
-                        negative_slope: cfloat; threadpool: pthreadpool_t): nnp_status"><wbr />nnp_<wbr />relu_<wbr />input_<wbr />gradient<span class="attachedType">pthreadpool_t</span></a></li>
+                              output: ptr cfloat; threadpool: pthreadpool_t): nnp_status">nnp_fully_connected_inference,<wbr>csize_t,<wbr>csize_t,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>ptr.cfloat,<wbr>pthreadpool_t</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">nnp_initialize
+      <li><a class="reference" href="#nnp_initialize"
+    title="nnp_initialize(): nnp_status">nnp_initialize</a></li>
+
+  </ul>
 
   </ul>
 </li>
@@ -300,29 +361,21 @@ function main() {
 </ul>
 
   </div>
+  &nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L1"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
+
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
   
-  <p class="module-desc"><dl class="docutils"><dt>*</dt>
-<dd>@brief Status code for any NNPACK function call.</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Activation applied applied after a convolutional or fully-connected layer.</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Algorithm for computing convolutional layers.</dd>
-</dl>
-For backward compatibility<dl class="docutils"><dt>*</dt>
-<dd>@brief Size of images, kernels, and pooling filters in NNPACK.</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Padding of images in NNPACK.</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Profiling information about time spent in different phases of a function call.</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Computes output of a 2D convolutional layer from input and kernel tensors.<dl class="docutils"><dt>@details This function targets training of convolutional neural networks and performs forward propagation.</dt>
+  <p class="module-desc"><blockquote><p>@brief Status code for any NNPACK function call.</p></blockquote>
+<blockquote><p>@brief Activation applied applied after a convolutional or fully-connected layer.</p></blockquote>
+<blockquote><p>@brief Algorithm for computing convolutional layers.</p></blockquote>
+For backward compatibility<blockquote><p>@brief Size of images, kernels, and pooling filters in NNPACK.</p></blockquote>
+<blockquote><p>@brief Padding of images in NNPACK.</p></blockquote>
+<blockquote><p>@brief Profiling information about time spent in different phases of a function call.</p></blockquote>
+<blockquote><p>@brief Computes output of a 2D convolutional layer from input and kernel tensors.<dl class="docutils"><dt>@details This function targets training of convolutional neural networks and performs forward propagation.</dt>
 <dd>It is optimized for moderate minibatch sizes (64-128) and can be inefficient on a small minibatch. For minibatch size 1, use nnp_convolution_inference for optimal performance.</dd>
 </dl>
 <p>@param algorithm The type of algorithm to use for convolution. Possible values are:</p>
@@ -354,10 +407,8 @@ For backward compatibility<dl class="docutils"><dt>*</dt>
 <dt>@param[out] profile An optional pointer to profiling structure.</dt>
 <dd>If provided, the structure would record time spent in different phases of the computation.</dd>
 </dl>
-</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Computes gradient of input of a 2D convolutional layer from gradient of output and kernel tensors.<dl class="docutils"><dt>@details This function targets training of convolutional neural networks and performs backward propagation.</dt>
+</p></blockquote>
+<blockquote><p>@brief Computes gradient of input of a 2D convolutional layer from gradient of output and kernel tensors.<dl class="docutils"><dt>@details This function targets training of convolutional neural networks and performs backward propagation.</dt>
 <dd>It is optimized for moderate minibatch sizes (64-128) and can be inefficient on a small minibatch.</dd>
 </dl>
 <p>@param algorithm The type of algorithm to use for convolution. Possible values are:</p>
@@ -394,10 +445,8 @@ For backward compatibility<dl class="docutils"><dt>*</dt>
 <dt>@param[out] profile An optional pointer to profiling structure.</dt>
 <dd>If provided, the structure would record time spent in different phases of the computation.</dd>
 </dl>
-</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Computes gradient of kernel of a 2D convolutional layer from gradient of output and input tensors.<dl class="docutils"><dt>@details This function targets training of convolutional neural networks and performs backward propagation.</dt>
+</p></blockquote>
+<blockquote><p>@brief Computes gradient of kernel of a 2D convolutional layer from gradient of output and input tensors.<dl class="docutils"><dt>@details This function targets training of convolutional neural networks and performs backward propagation.</dt>
 <dd>It is optimized for moderate minibatch sizes (64-128) and can be inefficient on a small minibatch.</dd>
 </dl>
 <p>@param algorithm The type of algorithm to use for convolution. Possible values are:</p>
@@ -430,10 +479,8 @@ For backward compatibility<dl class="docutils"><dt>*</dt>
 <dt>@param[out] profile An optional pointer to profiling structure.</dt>
 <dd>If provided, the structure would record time spent in different phases of the computation.</dd>
 </dl>
-</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Computes output of a 2D convolutional layer for a single input image and a kernel tensor. @details This function targets prediction with convolutional neural networks and performs forward propagation. @param algorithm The type of algorithm to use for convolution. Possible values are:<blockquote><p><ul class="simple"><li>nnp_convolution_algorithm_auto    -- let the function choose the algorithm.</li>
+</p></blockquote>
+<blockquote><p>@brief Computes output of a 2D convolutional layer for a single input image and a kernel tensor. @details This function targets prediction with convolutional neural networks and performs forward propagation. @param algorithm The type of algorithm to use for convolution. Possible values are:<blockquote><p><ul class="simple"><li>nnp_convolution_algorithm_auto    -- let the function choose the algorithm.</li>
 <li><dl class="docutils"><dt>nnp_convolution_algorithm_ft8x8   -- tiled convolution based on 2D Fourier transform with 8x8 blocks.</dt>
 <dd>Supports kernels up to 8x8.</dd>
 </dl>
@@ -479,32 +526,24 @@ For backward compatibility<dl class="docutils"><dt>*</dt>
 <dt>@param[out] profile An optional pointer to profiling structure.</dt>
 <dd>If provided, the structure would record time spent in different phases of the computation.</dd>
 </dl>
-</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Computes output of a fully connected layer from input and kernel matrices.<dl class="docutils"><dt>@details This function targets training of convolutional neural networks and performs forward propagation.</dt>
+</p></blockquote>
+<blockquote><p>@brief Computes output of a fully connected layer from input and kernel matrices.<dl class="docutils"><dt>@details This function targets training of convolutional neural networks and performs forward propagation.</dt>
 <dd>It is optimized for moderate minibatch sizes (64-128) and can be inefficient on a small minibatch. For minibatch size 1, use nnp_fully_connected_inference for optimal performance.</dd>
 </dl>
 <p>@param batch_size The number of vectors on the input and output of the fully connected layer. @param input_channels The number of channels (AKA features, dimensions) in the input matrix. @param output_channels The number of channels (AKA features, dimensions) in the output matrix. @param[in]  input  A 2D matrix input[batch_size][input_channels]. @param[in]  kernel A 2D matrix kernel[output_channels][input_channels]. @param[out] output A 2D matrix output[batch_size][output_channels].</p>
 <dl class="docutils"><dt>@param threadpool A thread pool for parallelization of the computation.</dt>
 <dd>If threadpool is NULL, the computation would run on the caller thread without parallelization.</dd>
 </dl>
-</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Computes output of a fully connected layer for a single input vector and a kernel matrix. @details This function targets prediction with convolutional neural networks and performs forward propagation. @param input_channels The number of channels (AKA features, dimensions) in the input vector. @param output_channels The number of channels (AKA features, dimensions) in the output vector. @param[in]  input  A 1D array input[input_channels] of FP32 elements. @param[in]  kernel A 2D matrix kernel[output_channels][input_channels] of FP32 elements. @param[out] output A 1D array output[output_channels] of FP32 elements.<dl class="docutils"><dt>@param threadpool A thread pool for parallelization of the computation.</dt>
+</p></blockquote>
+<blockquote><p>@brief Computes output of a fully connected layer for a single input vector and a kernel matrix. @details This function targets prediction with convolutional neural networks and performs forward propagation. @param input_channels The number of channels (AKA features, dimensions) in the input vector. @param output_channels The number of channels (AKA features, dimensions) in the output vector. @param[in]  input  A 1D array input[input_channels] of FP32 elements. @param[in]  kernel A 2D matrix kernel[output_channels][input_channels] of FP32 elements. @param[out] output A 1D array output[output_channels] of FP32 elements.<dl class="docutils"><dt>@param threadpool A thread pool for parallelization of the computation.</dt>
 <dd>If threadpool is NULL, the computation would run on the caller thread without parallelization.</dd>
 </dl>
-</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Computes output of a fully connected layer for a single input vector and a kernel matrix. @details This function targets prediction with convolutional neural networks and performs forward propagation. @param input_channels The number of channels (AKA features, dimensions) in the input vector. @param output_channels The number of channels (AKA features, dimensions) in the output vector. @param[in]  input  A 1D array input[input_channels] of FP32 elements. @param[in]  kernel A 2D matrix kernel[output_channels][input_channels] of FP16 (ARM alternative format) elements. @param[out] output A 1D array output[output_channels] of FP32 elements.<dl class="docutils"><dt>@param threadpool A thread pool for parallelization of the computation.</dt>
+</p></blockquote>
+<blockquote><p>@brief Computes output of a fully connected layer for a single input vector and a kernel matrix. @details This function targets prediction with convolutional neural networks and performs forward propagation. @param input_channels The number of channels (AKA features, dimensions) in the input vector. @param output_channels The number of channels (AKA features, dimensions) in the output vector. @param[in]  input  A 1D array input[input_channels] of FP32 elements. @param[in]  kernel A 2D matrix kernel[output_channels][input_channels] of FP16 (ARM alternative format) elements. @param[out] output A 1D array output[output_channels] of FP32 elements.<dl class="docutils"><dt>@param threadpool A thread pool for parallelization of the computation.</dt>
 <dd>If threadpool is NULL, the computation would run on the caller thread without parallelization.</dd>
 </dl>
-</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Computes output of a max-pooling layer for an input tensor.<dl class="docutils"><dt>@details This function targets both prediction and training of convolutional neural networks and performs forward</dt>
+</p></blockquote>
+<blockquote><p>@brief Computes output of a max-pooling layer for an input tensor.<dl class="docutils"><dt>@details This function targets both prediction and training of convolutional neural networks and performs forward</dt>
 <dd>propagation. Is is optimized for both large and small minibatch sizes.</dd>
 </dl>
 <p>@param batch_size The number of images on the input and output of the max-pooling layer. @param channels   The number of channels (AKA features, dimensions) in both input and output images. @param input_size Size of input images, excluding implicit zero-padding.</p>
@@ -528,57 +567,58 @@ For backward compatibility<dl class="docutils"><dt>*</dt>
 <dt>@param threadpool A thread pool for parallelization of the computation.</dt>
 <dd>If threadpool is NULL, the computation would run on the caller thread without parallelization.</dd>
 </dl>
-</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Computes output of a softmax layer for an input matrix.<dl class="docutils"><dt>@details This function targets both prediction and training of convolutional neural networks and performs forward</dt>
+</p></blockquote>
+<blockquote><p>@brief Computes output of a softmax layer for an input matrix.<dl class="docutils"><dt>@details This function targets both prediction and training of convolutional neural networks and performs forward</dt>
 <dd>propagation. Is is optimized for both large and small minibatch sizes.</dd>
 </dl>
 <p>@param batch_size The number of vectors on the input and output of the softmax layer. @param channels   The number of channels (AKA features, dimensions) in both input and output vectors. @param[in]  input  A 2D matrix input[batch_size][channels]. @param[out] output A 2D matrix output[batch_size][channels].</p>
 <dl class="docutils"><dt>@param threadpool A thread pool for parallelization of the computation.</dt>
 <dd>If threadpool is NULL, the computation would run on the caller thread without parallelization.</dd>
 </dl>
-</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Computes output of a rectified linear unit (ReLU) layer for an input matrix.<dl class="docutils"><dt>@details This function targets both prediction and training of convolutional neural networks and performs forward</dt>
+</p></blockquote>
+<blockquote><p>@brief Computes output of a rectified linear unit (ReLU) layer for an input matrix.<dl class="docutils"><dt>@details This function targets both prediction and training of convolutional neural networks and performs forward</dt>
 <dd>propagation. Is is optimized for both large and small minibatch sizes.</dd>
 </dl>
 <p>@param batch_size The number of vectors on the input and output of the ReLU layer. @param channels   The number of channels (AKA features, dimensions) in both input and output matrices. @param[in]  input  A 2D matrix input[batch_size][channels]. @param[out] output A 2D matrix output[batch_size][channels].</p>
 <dl class="docutils"><dt>@param threadpool A thread pool for parallelization of the computation.</dt>
 <dd>If threadpool is NULL, the computation would run on the caller thread without parallelization.</dd>
 </dl>
-</dd>
-</dl>
-<dl class="docutils"><dt>*</dt>
-<dd>@brief Computes gradient of input of a rectified linear unit (ReLU) layer from gradient of output and input matrices.<dl class="docutils"><dt>@details This function targets training of convolutional neural networks and performs backward propagation.</dt>
+</p></blockquote>
+<blockquote><p>@brief Computes gradient of input of a rectified linear unit (ReLU) layer from gradient of output and input matrices.<dl class="docutils"><dt>@details This function targets training of convolutional neural networks and performs backward propagation.</dt>
 <dd>Is is optimized for both large and small minibatch sizes.</dd>
 </dl>
 <p>@param batch_size The number of vectors on the input and output of the ReLU layer. @param channels   The number of channels (AKA features, dimensions) in both input and output matrices. @param[in]  input  A 2D matrix input[batch_size][channels]. @param[out] output A 2D matrix output[batch_size][channels].</p>
 <dl class="docutils"><dt>@param threadpool A thread pool for parallelization of the computation.</dt>
 <dd>If threadpool is NULL, the computation would run on the caller thread without parallelization.</dd>
 </dl>
-</dd>
-</dl>
+</p></blockquote>
 </p>
-  <div class="section" id="7">
+  <div class="section" id="6">
+<h1><a class="toc-backref" href="#6">Imports</a></h1>
+<dl class="item">
+<a class="reference external" href="std_version_types.html">std_version_types</a>
+</dl></div>
+<div class="section" id="7">
 <h1><a class="toc-backref" href="#7">Types</a></h1>
 <dl class="item">
 <a id="nnp_status"></a>
 <dt><pre><a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">size</span><span class="Other">:</span> <span class="DecNumber">4</span></span><span class="Other">.}</span></span> <span class="Other">=</span> <span class="Keyword">enum</span>
-  <span class="Identifier">nnp_status_success</span> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">,</span>       <span class="Comment">## * NNPACK function was called with batch_size == 0.</span>
+  <span class="Identifier">nnp_status_success</span> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">,</span>   <span class="Comment">## * NNPACK function was called with batch_size == 0.</span>
   <span class="Identifier">nnp_status_invalid_batch_size</span> <span class="Other">=</span> <span class="DecNumber">2</span><span class="Other">,</span> <span class="Comment">## * NNPACK function was called with channels == 0.</span>
   <span class="Identifier">nnp_status_invalid_channels</span> <span class="Other">=</span> <span class="DecNumber">3</span><span class="Other">,</span> <span class="Comment">## * NNPACK function was called with input_channels == 0.</span>
   <span class="Identifier">nnp_status_invalid_input_channels</span> <span class="Other">=</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="Comment">## * NNPACK function was called with output_channels == 0.</span>
   <span class="Identifier">nnp_status_invalid_output_channels</span> <span class="Other">=</span> <span class="DecNumber">5</span><span class="Other">,</span> <span class="Comment">## * NNPACK function was called with input_size.height == 0 or input_size.width == 0</span>
   <span class="Identifier">nnp_status_invalid_input_size</span> <span class="Other">=</span> <span class="DecNumber">10</span><span class="Other">,</span> <span class="Comment">## * NNPACK function was called with input_stride.height == 0 or input_stride.width == 0</span>
   <span class="Identifier">nnp_status_invalid_input_stride</span> <span class="Other">=</span> <span class="DecNumber">11</span><span class="Other">,</span> <span class="Comment">## * NNPACK function was called with input_padding not less than respective kernel (or pooling) size, i.e.:</span>
-                                     <span class="Comment">## </span>
-                                     <span class="Comment">##   - input_padding.left   &gt;= kernel_size.width  (&gt;= pooling_size.width)</span>
-                                     <span class="Comment">##   - input_padding.right  &gt;= kernel_size.width  (&gt;= pooling_size.width)</span>
-                                     <span class="Comment">##   - input_padding.top    &gt;= kernel_size.height (&gt;= pooling_size.height)</span>
-                                     <span class="Comment">##   - input_padding.bottom &gt;= kernel_size.height (&gt;= pooling_size.height)</span>
-                                     <span class="Comment">## </span>
+                                         <span class="Comment">## </span>
+                                         <span class="Comment">##   - input_padding.left   &gt;= kernel_size.width  (&gt;= pooling_size.width)</span>
+                                         <span class="Comment">##   </span>
+                                         <span class="Comment">## - input_padding.right  &gt;= kernel_size.width  (&gt;= pooling_size.width)</span>
+                                         <span class="Comment">##   </span>
+                                         <span class="Comment">## - input_padding.top    &gt;= kernel_size.height (&gt;= pooling_size.height)</span>
+                                         <span class="Comment">##   </span>
+                                         <span class="Comment">## - input_padding.bottom &gt;= kernel_size.height (&gt;= pooling_size.height)</span>
+                                         <span class="Comment">## </span>
   <span class="Identifier">nnp_status_invalid_input_padding</span> <span class="Other">=</span> <span class="DecNumber">12</span><span class="Other">,</span> <span class="Comment">## * NNPACK function was called with kernel_size.height == 0 or kernel_size.width == 0</span>
   <span class="Identifier">nnp_status_invalid_kernel_size</span> <span class="Other">=</span> <span class="DecNumber">13</span><span class="Other">,</span> <span class="Comment">## * NNPACK function was called with pooling_size.height == 0 or pooling_size.width == 0</span>
   <span class="Identifier">nnp_status_invalid_pooling_size</span> <span class="Other">=</span> <span class="DecNumber">14</span><span class="Other">,</span> <span class="Comment">## * NNPACK function was called with pooling_stride.height == 0 or pooling_stride.width == 0</span>
@@ -606,9 +646,9 @@ For backward compatibility<dl class="docutils"><dt>*</dt>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L22"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L24"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L22" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L24" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="pthreadpool_t"></a>
@@ -617,14 +657,14 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L58"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L60"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L58" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L60" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="nnp_activation"></a>
 <dt><pre><a href="nnpack.html#nnp_activation"><span class="Identifier">nnp_activation</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">size</span><span class="Other">:</span> <span class="DecNumber">4</span></span><span class="Other">.}</span></span> <span class="Other">=</span> <span class="Keyword">enum</span>
-  <span class="Identifier">nnp_activation_identity</span> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">,</span>  <span class="Comment">## * ReLU activation f(x) := max(0, x)</span>
+  <span class="Identifier">nnp_activation_identity</span> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="Comment">## * ReLU activation f(x) := max(0, x)</span>
   <span class="Identifier">nnp_activation_relu</span> <span class="Other">=</span> <span class="DecNumber">1</span></pre></dt>
 <dd>
 
@@ -632,9 +672,9 @@ class="link-seesrc" target="_blank">Source</a>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L70"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L72"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L70" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L72" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="nnp_convolution_algorithm"></a>
@@ -645,10 +685,10 @@ class="link-seesrc" target="_blank">Source</a>
   <span class="Identifier">nnp_convolution_algorithm_wt8x8</span> <span class="Other">=</span> <span class="DecNumber">3</span><span class="Other">,</span> <span class="Comment">## * Direct convolution via implicit GEMM.</span>
   <span class="Identifier">nnp_convolution_algorithm_implicit_gemm</span> <span class="Other">=</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="Comment">## * Direct convolution implementation.</span>
   <span class="Identifier">nnp_convolution_algorithm_direct</span> <span class="Other">=</span> <span class="DecNumber">5</span><span class="Other">,</span> <span class="Comment">## *</span>
-                                     <span class="Comment">##  Tiled convolution based on 2D Winograd transform F(3x3, 6x6) with 8x8 blocks in FP16.</span>
-                                     <span class="Comment">##  Supports only 3x3 kernels. Implemented only for new ARM processors (with NEON-HP),</span>
-                                     <span class="Comment">##  on non-supported processors falls back to nnp_convolution_algorithm_wt8x8.</span>
-                                     <span class="Comment">## </span>
+                                         <span class="Comment">##  Tiled convolution based on 2D Winograd transform F(3x3, 6x6) with 8x8 blocks in FP16.</span>
+                                         <span class="Comment">##  Supports only 3x3 kernels. Implemented only for new ARM processors (with NEON-HP),</span>
+                                         <span class="Comment">##  on non-supported processors falls back to nnp_convolution_algorithm_wt8x8.</span>
+                                         <span class="Comment">## </span>
   <span class="Identifier">nnp_convolution_algorithm_wt8x8_fp16</span> <span class="Other">=</span> <span class="DecNumber">6</span></pre></dt>
 <dd>
 
@@ -656,9 +696,9 @@ class="link-seesrc" target="_blank">Source</a>
 </ul>
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L80"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L82"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L80" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L82" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="nnp_convolution_transform_strategy"></a>
@@ -670,59 +710,61 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L95"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L97"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L95" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L97" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="nnp_size"></a>
 <dt><pre><a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">bycopy</span></span><span class="Other">.}</span></span> <span class="Other">=</span> <span class="Keyword">object</span>
-  <span class="Identifier">width</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize</span> <span class="Comment">## * Width (horizontal size) of an image, kernel, or pooling filter.</span>
-              <span class="Comment">## * Height (vertical size) of an image, kernel, or pooling filter.</span>
-  <span class="Identifier">height</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize</span>
+  <span class="Identifier">width</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize_t</span> <span class="Comment">## * Width (horizontal size) of an image, kernel, or pooling filter.</span>
+                  <span class="Comment">## </span>
+                  <span class="Comment">## * Height (vertical size) of an image, kernel, or pooling filter.</span>
+  <span class="Identifier">height</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize_t</span>
 </pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L112"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L114"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L112" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L114" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="nnp_padding"></a>
 <dt><pre><a href="nnpack.html#nnp_padding"><span class="Identifier">nnp_padding</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">bycopy</span></span><span class="Other">.}</span></span> <span class="Other">=</span> <span class="Keyword">object</span>
-  <span class="Identifier">top</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize</span>                  <span class="Comment">## * Padding above the image data</span>
-            <span class="Comment">## * Padding on the right of image data</span>
-  <span class="Identifier">right</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize</span>                <span class="Comment">## * Padding below the image data</span>
-  <span class="Identifier">bottom</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize</span>               <span class="Comment">## * Padding on the left of image data</span>
-  <span class="Identifier">left</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize</span>
+  <span class="Identifier">top</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize_t</span>              <span class="Comment">## * Padding above the image data</span>
+                             <span class="Comment">## * Padding on the right of image data</span>
+  <span class="Identifier">right</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize_t</span>            <span class="Comment">## * Padding below the image data</span>
+  <span class="Identifier">bottom</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize_t</span>           <span class="Comment">## * Padding on the left of image data</span>
+  <span class="Identifier">left</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">csize_t</span>
 </pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L122"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L124"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L122" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L124" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="nnp_profile"></a>
 <dt><pre><a href="nnpack.html#nnp_profile"><span class="Identifier">nnp_profile</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">bycopy</span></span><span class="Other">.}</span></span> <span class="Other">=</span> <span class="Keyword">object</span>
-  <span class="Identifier">total</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">cdouble</span>              <span class="Comment">## * Time spent inside the function call, in seconds.</span>
-                <span class="Comment">## * Time spend on transformation of the input or input gradient tensor, in seconds.</span>
-  <span class="Identifier">input_transform</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">cdouble</span>    <span class="Comment">## * Time spend on transformation of the kernel or kernel gradient tensor, in seconds.</span>
-  <span class="Identifier">kernel_transform</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">cdouble</span>   <span class="Comment">## * Time spend on transformation of the output or output gradient tensor, in seconds.</span>
-  <span class="Identifier">output_transform</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">cdouble</span>   <span class="Comment">## * Time spend on multiplication-accumulation of transformed coefficients, in seconds.</span>
+  <span class="Identifier">total</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">cdouble</span>            <span class="Comment">## * Time spent inside the function call, in seconds.</span>
+                             <span class="Comment">## </span>
+                             <span class="Comment">## * Time spend on transformation of the input or input gradient tensor, in seconds.</span>
+  <span class="Identifier">input_transform</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">cdouble</span>  <span class="Comment">## * Time spend on transformation of the kernel or kernel gradient tensor, in seconds.</span>
+  <span class="Identifier">kernel_transform</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">cdouble</span> <span class="Comment">## * Time spend on transformation of the output or output gradient tensor, in seconds.</span>
+  <span class="Identifier">output_transform</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">cdouble</span> <span class="Comment">## * Time spend on multiplication-accumulation of transformed coefficients, in seconds.</span>
   <span class="Identifier">block_multiplication</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">cdouble</span>
 </pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L134"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L136"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L134" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L136" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -736,9 +778,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L61"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L63"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L61" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L63" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="nnp_status_invalid_activation"></a>
@@ -747,9 +789,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L62"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L64"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L62" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L64" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="nnp_status_invalid_activation_parameters"></a>
@@ -758,9 +800,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L63"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L65"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L63" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L65" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="nnp_convolution_transform_strategy_block_based"></a>
@@ -769,9 +811,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L104"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L106"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L104" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L106" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="nnp_convolution_transform_strategy_tuple_based"></a>
@@ -780,9 +822,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L105"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L107"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L105" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L107" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -796,9 +838,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L143"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L145"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L143" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L145" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="nnp_deinitialize"></a>
@@ -807,197 +849,212 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L144"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L146"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L144" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L146" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="nnp_convolution_output,nnp_convolution_algorithm,csize,csize,csize,nnp_size,nnp_padding,nnp_size,ptr.cfloat,ptr.cfloat,ptr.cfloat,ptr.cfloat,pointer,ptr.csize,nnp_activation,pointer,pthreadpool_t,ptr.nnp_profile"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#nnp_convolution_output%2Cnnp_convolution_algorithm%2Ccsize%2Ccsize%2Ccsize%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"><span class="Identifier">nnp_convolution_output</span></a><span class="Other">(</span><span class="Identifier">algorithm</span><span class="Other">:</span> <a href="nnpack.html#nnp_convolution_algorithm"><span class="Identifier">nnp_convolution_algorithm</span></a><span class="Other">;</span>
-                           <span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span>
-                           <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
-                           <span class="Identifier">input_padding</span><span class="Other">:</span> <a href="nnpack.html#nnp_padding"><span class="Identifier">nnp_padding</span></a><span class="Other">;</span> <span class="Identifier">kernel_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
-                           <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">bias</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                           <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">workspace_buffer</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
-                           <span class="Identifier">workspace_size</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">csize</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span> <span class="Identifier">activation</span><span class="Other">:</span> <a href="nnpack.html#nnp_activation"><span class="Identifier">nnp_activation</span></a> <span class="Other">=</span> <span class="Identifier">nnp_activation_identity</span><span class="Other">;</span>
-                           <span class="Identifier">activation_parameters</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
-                           <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
-                           <span class="Identifier">profile</span><span class="Other">:</span> <span class="Keyword">ptr</span> <a href="nnpack.html#nnp_profile"><span class="Identifier">nnp_profile</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
+<a id="nnp_convolution_output,nnp_convolution_algorithm,csize_t,csize_t,csize_t,nnp_size,nnp_padding,nnp_size,ptr.cfloat,ptr.cfloat,ptr.cfloat,ptr.cfloat,pointer,ptr.csize_t,nnp_activation,pointer,pthreadpool_t,ptr.nnp_profile"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#nnp_convolution_output%2Cnnp_convolution_algorithm%2Ccsize_t%2Ccsize_t%2Ccsize_t%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize_t%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"><span class="Identifier">nnp_convolution_output</span></a><span class="Other">(</span><span class="Identifier">algorithm</span><span class="Other">:</span> <a href="nnpack.html#nnp_convolution_algorithm"><span class="Identifier">nnp_convolution_algorithm</span></a><span class="Other">;</span>
+                            <span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                            <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">input_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
+                            <span class="Identifier">input_padding</span><span class="Other">:</span> <a href="nnpack.html#nnp_padding"><span class="Identifier">nnp_padding</span></a><span class="Other">;</span> <span class="Identifier">kernel_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
+                            <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                            <span class="Identifier">bias</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                            <span class="Identifier">workspace_buffer</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
+                            <span class="Identifier">workspace_size</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">csize_t</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span> <span class="Identifier">activation</span><span class="Other">:</span> <a href="nnpack.html#nnp_activation"><span class="Identifier">nnp_activation</span></a> <span class="Other">=</span> <span class="Identifier">nnp_activation_identity</span><span class="Other">;</span>
+                            <span class="Identifier">activation_parameters</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
+                            <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
+                            <span class="Identifier">profile</span><span class="Other">:</span> <span class="Keyword">ptr</span> <a href="nnpack.html#nnp_profile"><span class="Identifier">nnp_profile</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_convolution_output&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L180"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L182"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L180" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L182" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="nnp_convolution_input_gradient,nnp_convolution_algorithm,csize,csize,csize,nnp_size,nnp_padding,nnp_size,ptr.cfloat,ptr.cfloat,ptr.cfloat,pointer,ptr.csize,nnp_activation,pointer,pthreadpool_t,ptr.nnp_profile"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#nnp_convolution_input_gradient%2Cnnp_convolution_algorithm%2Ccsize%2Ccsize%2Ccsize%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"><span class="Identifier">nnp_convolution_input_gradient</span></a><span class="Other">(</span><span class="Identifier">algorithm</span><span class="Other">:</span> <a href="nnpack.html#nnp_convolution_algorithm"><span class="Identifier">nnp_convolution_algorithm</span></a><span class="Other">;</span>
-                                   <span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span>
-                                   <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
-                                   <span class="Identifier">input_padding</span><span class="Other">:</span> <a href="nnpack.html#nnp_padding"><span class="Identifier">nnp_padding</span></a><span class="Other">;</span>
-                                   <span class="Identifier">kernel_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span> <span class="Identifier">grad_output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                                   <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">grad_input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                                   <span class="Identifier">workspace_buffer</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
-                                   <span class="Identifier">workspace_size</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">csize</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span> <span class="Identifier">activation</span><span class="Other">:</span> <a href="nnpack.html#nnp_activation"><span class="Identifier">nnp_activation</span></a> <span class="Other">=</span> <span class="Identifier">nnp_activation_identity</span><span class="Other">;</span>
-                                   <span class="Identifier">activation_parameters</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
-                                   <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
-                                   <span class="Identifier">profile</span><span class="Other">:</span> <span class="Keyword">ptr</span> <a href="nnpack.html#nnp_profile"><span class="Identifier">nnp_profile</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+<a id="nnp_convolution_input_gradient,nnp_convolution_algorithm,csize_t,csize_t,csize_t,nnp_size,nnp_padding,nnp_size,ptr.cfloat,ptr.cfloat,ptr.cfloat,pointer,ptr.csize_t,nnp_activation,pointer,pthreadpool_t,ptr.nnp_profile"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#nnp_convolution_input_gradient%2Cnnp_convolution_algorithm%2Ccsize_t%2Ccsize_t%2Ccsize_t%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize_t%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"><span class="Identifier">nnp_convolution_input_gradient</span></a><span class="Other">(</span><span class="Identifier">algorithm</span><span class="Other">:</span> <a href="nnpack.html#nnp_convolution_algorithm"><span class="Identifier">nnp_convolution_algorithm</span></a><span class="Other">;</span>
+                                    <span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                                    <span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                                    <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                                    <span class="Identifier">input_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
+                                    <span class="Identifier">input_padding</span><span class="Other">:</span> <a href="nnpack.html#nnp_padding"><span class="Identifier">nnp_padding</span></a><span class="Other">;</span>
+                                    <span class="Identifier">kernel_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
+                                    <span class="Identifier">grad_output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                                    <span class="Identifier">grad_input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                                    <span class="Identifier">workspace_buffer</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
+                                    <span class="Identifier">workspace_size</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">csize_t</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
+    <span class="Identifier">activation</span><span class="Other">:</span> <a href="nnpack.html#nnp_activation"><span class="Identifier">nnp_activation</span></a> <span class="Other">=</span> <span class="Identifier">nnp_activation_identity</span><span class="Other">;</span>
+                                    <span class="Identifier">activation_parameters</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
+                                    <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
+                                    <span class="Identifier">profile</span><span class="Other">:</span> <span class="Keyword">ptr</span> <a href="nnpack.html#nnp_profile"><span class="Identifier">nnp_profile</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
     <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_convolution_input_gradient&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L224"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L226"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L224" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L226" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="nnp_convolution_kernel_gradient,nnp_convolution_algorithm,csize,csize,csize,nnp_size,nnp_padding,nnp_size,ptr.cfloat,ptr.cfloat,ptr.cfloat,pointer,ptr.csize,nnp_activation,pointer,pthreadpool_t,ptr.nnp_profile"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#nnp_convolution_kernel_gradient%2Cnnp_convolution_algorithm%2Ccsize%2Ccsize%2Ccsize%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"><span class="Identifier">nnp_convolution_kernel_gradient</span></a><span class="Other">(</span><span class="Identifier">algorithm</span><span class="Other">:</span> <a href="nnpack.html#nnp_convolution_algorithm"><span class="Identifier">nnp_convolution_algorithm</span></a><span class="Other">;</span>
-                                    <span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span>
-                                    <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
-                                    <span class="Identifier">input_padding</span><span class="Other">:</span> <a href="nnpack.html#nnp_padding"><span class="Identifier">nnp_padding</span></a><span class="Other">;</span>
-                                    <span class="Identifier">kernel_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                                    <span class="Identifier">grad_output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                                    <span class="Identifier">grad_kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                                    <span class="Identifier">workspace_buffer</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
-                                    <span class="Identifier">workspace_size</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">csize</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span> <span class="Identifier">activation</span><span class="Other">:</span> <a href="nnpack.html#nnp_activation"><span class="Identifier">nnp_activation</span></a> <span class="Other">=</span> <span class="Identifier">nnp_activation_identity</span><span class="Other">;</span>
-                                    <span class="Identifier">activation_parameters</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
-                                    <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
-                                    <span class="Identifier">profile</span><span class="Other">:</span> <span class="Keyword">ptr</span> <a href="nnpack.html#nnp_profile"><span class="Identifier">nnp_profile</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+<a id="nnp_convolution_kernel_gradient,nnp_convolution_algorithm,csize_t,csize_t,csize_t,nnp_size,nnp_padding,nnp_size,ptr.cfloat,ptr.cfloat,ptr.cfloat,pointer,ptr.csize_t,nnp_activation,pointer,pthreadpool_t,ptr.nnp_profile"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#nnp_convolution_kernel_gradient%2Cnnp_convolution_algorithm%2Ccsize_t%2Ccsize_t%2Ccsize_t%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize_t%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"><span class="Identifier">nnp_convolution_kernel_gradient</span></a><span class="Other">(</span><span class="Identifier">algorithm</span><span class="Other">:</span> <a href="nnpack.html#nnp_convolution_algorithm"><span class="Identifier">nnp_convolution_algorithm</span></a><span class="Other">;</span>
+                                     <span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                                     <span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                                     <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                                     <span class="Identifier">input_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
+                                     <span class="Identifier">input_padding</span><span class="Other">:</span> <a href="nnpack.html#nnp_padding"><span class="Identifier">nnp_padding</span></a><span class="Other">;</span>
+                                     <span class="Identifier">kernel_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                                     <span class="Identifier">grad_output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                                     <span class="Identifier">grad_kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                                     <span class="Identifier">workspace_buffer</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
+                                     <span class="Identifier">workspace_size</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">csize_t</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
+    <span class="Identifier">activation</span><span class="Other">:</span> <a href="nnpack.html#nnp_activation"><span class="Identifier">nnp_activation</span></a> <span class="Other">=</span> <span class="Identifier">nnp_activation_identity</span><span class="Other">;</span>
+                                     <span class="Identifier">activation_parameters</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
+                                     <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">;</span>
+                                     <span class="Identifier">profile</span><span class="Other">:</span> <span class="Keyword">ptr</span> <a href="nnpack.html#nnp_profile"><span class="Identifier">nnp_profile</span></a> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
     <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_convolution_kernel_gradient&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L271"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L273"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L271" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L273" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="nnp_convolution_inference,nnp_convolution_algorithm,nnp_convolution_transform_strategy,csize,csize,nnp_size,nnp_padding,nnp_size,nnp_size,ptr.cfloat,ptr.cfloat,ptr.cfloat,ptr.cfloat,pointer,ptr.csize,nnp_activation,pointer,pthreadpool_t,ptr.nnp_profile"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#nnp_convolution_inference%2Cnnp_convolution_algorithm%2Cnnp_convolution_transform_strategy%2Ccsize%2Ccsize%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"><span class="Identifier">nnp_convolution_inference</span></a><span class="Other">(</span><span class="Identifier">algorithm</span><span class="Other">:</span> <a href="nnpack.html#nnp_convolution_algorithm"><span class="Identifier">nnp_convolution_algorithm</span></a><span class="Other">;</span>
-    <span class="Identifier">transform_strategy</span><span class="Other">:</span> <a href="nnpack.html#nnp_convolution_transform_strategy"><span class="Identifier">nnp_convolution_transform_strategy</span></a><span class="Other">;</span> <span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span>
-                              <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
-                              <span class="Identifier">input_padding</span><span class="Other">:</span> <a href="nnpack.html#nnp_padding"><span class="Identifier">nnp_padding</span></a><span class="Other">;</span> <span class="Identifier">kernel_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
-                              <span class="Identifier">output_subsampling</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                              <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">bias</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                              <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">workspace_buffer</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span>
-                              <span class="Identifier">workspace_size</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">csize</span><span class="Other">;</span>
-                              <span class="Identifier">activation</span><span class="Other">:</span> <a href="nnpack.html#nnp_activation"><span class="Identifier">nnp_activation</span></a><span class="Other">;</span>
-                              <span class="Identifier">activation_parameters</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span>
-                              <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">;</span> <span class="Identifier">profile</span><span class="Other">:</span> <span class="Keyword">ptr</span> <a href="nnpack.html#nnp_profile"><span class="Identifier">nnp_profile</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_convolution_inference&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="nnp_convolution_inference,nnp_convolution_algorithm,nnp_convolution_transform_strategy,csize_t,csize_t,nnp_size,nnp_padding,nnp_size,nnp_size,ptr.cfloat,ptr.cfloat,ptr.cfloat,ptr.cfloat,pointer,ptr.csize_t,nnp_activation,pointer,pthreadpool_t,ptr.nnp_profile"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#nnp_convolution_inference%2Cnnp_convolution_algorithm%2Cnnp_convolution_transform_strategy%2Ccsize_t%2Ccsize_t%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpointer%2Cptr.csize_t%2Cnnp_activation%2Cpointer%2Cpthreadpool_t%2Cptr.nnp_profile"><span class="Identifier">nnp_convolution_inference</span></a><span class="Other">(</span><span class="Identifier">algorithm</span><span class="Other">:</span> <a href="nnpack.html#nnp_convolution_algorithm"><span class="Identifier">nnp_convolution_algorithm</span></a><span class="Other">;</span>
+    <span class="Identifier">transform_strategy</span><span class="Other">:</span> <a href="nnpack.html#nnp_convolution_transform_strategy"><span class="Identifier">nnp_convolution_transform_strategy</span></a><span class="Other">;</span>
+                               <span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                               <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">input_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
+                               <span class="Identifier">input_padding</span><span class="Other">:</span> <a href="nnpack.html#nnp_padding"><span class="Identifier">nnp_padding</span></a><span class="Other">;</span>
+                               <span class="Identifier">kernel_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
+                               <span class="Identifier">output_subsampling</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                               <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">bias</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                               <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">workspace_buffer</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span>
+                               <span class="Identifier">workspace_size</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                               <span class="Identifier">activation</span><span class="Other">:</span> <a href="nnpack.html#nnp_activation"><span class="Identifier">nnp_activation</span></a><span class="Other">;</span>
+                               <span class="Identifier">activation_parameters</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span>
+                               <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">;</span>
+                               <span class="Identifier">profile</span><span class="Other">:</span> <span class="Keyword">ptr</span> <a href="nnpack.html#nnp_profile"><span class="Identifier">nnp_profile</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_convolution_inference&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L340"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L342"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L340" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L342" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="nnp_fully_connected_output,csize,csize,csize,ptr.cfloat,ptr.cfloat,ptr.cfloat,pthreadpool_t,ptr.nnp_profile"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#nnp_fully_connected_output%2Ccsize%2Ccsize%2Ccsize%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t%2Cptr.nnp_profile"><span class="Identifier">nnp_fully_connected_output</span></a><span class="Other">(</span><span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span>
-                               <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                               <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                               <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">;</span> <span class="Identifier">profile</span><span class="Other">:</span> <span class="Keyword">ptr</span> <a href="nnpack.html#nnp_profile"><span class="Identifier">nnp_profile</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_fully_connected_output&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="nnp_fully_connected_output,csize_t,csize_t,csize_t,ptr.cfloat,ptr.cfloat,ptr.cfloat,pthreadpool_t,ptr.nnp_profile"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#nnp_fully_connected_output%2Ccsize_t%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t%2Cptr.nnp_profile"><span class="Identifier">nnp_fully_connected_output</span></a><span class="Other">(</span><span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                                <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                                <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                                <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">;</span>
+                                <span class="Identifier">profile</span><span class="Other">:</span> <span class="Keyword">ptr</span> <a href="nnpack.html#nnp_profile"><span class="Identifier">nnp_profile</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_fully_connected_output&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L367"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L369"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L367" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L369" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="nnp_fully_connected_inference,csize,csize,ptr.cfloat,ptr.cfloat,ptr.cfloat,pthreadpool_t"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#nnp_fully_connected_inference%2Ccsize%2Ccsize%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"><span class="Identifier">nnp_fully_connected_inference</span></a><span class="Other">(</span><span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span>
-                                  <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                                  <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+<a id="nnp_fully_connected_inference,csize_t,csize_t,ptr.cfloat,ptr.cfloat,ptr.cfloat,pthreadpool_t"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#nnp_fully_connected_inference%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"><span class="Identifier">nnp_fully_connected_inference</span></a><span class="Other">(</span><span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                                   <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                                   <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                                   <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
     <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_fully_connected_inference&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L385"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L387"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L385" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L387" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="nnp_fully_connected_inference_f16f32,csize,csize,ptr.cfloat,pointer,ptr.cfloat,pthreadpool_t"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#nnp_fully_connected_inference_f16f32%2Ccsize%2Ccsize%2Cptr.cfloat%2Cpointer%2Cptr.cfloat%2Cpthreadpool_t"><span class="Identifier">nnp_fully_connected_inference_f16f32</span></a><span class="Other">(</span><span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span>
-    <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span> <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-    <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
+<a id="nnp_fully_connected_inference_f16f32,csize_t,csize_t,ptr.cfloat,pointer,ptr.cfloat,pthreadpool_t"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#nnp_fully_connected_inference_f16f32%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cpointer%2Cptr.cfloat%2Cpthreadpool_t"><span class="Identifier">nnp_fully_connected_inference_f16f32</span></a><span class="Other">(</span><span class="Identifier">input_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+    <span class="Identifier">output_channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">kernel</span><span class="Other">:</span> <span class="Identifier">pointer</span><span class="Other">;</span>
+    <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_fully_connected_inference_f16f32&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L401"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L403"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L401" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L403" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="nnp_max_pooling_output,csize,csize,nnp_size,nnp_padding,nnp_size,nnp_size,ptr.cfloat,ptr.cfloat,pthreadpool_t"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#nnp_max_pooling_output%2Ccsize%2Ccsize%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"><span class="Identifier">nnp_max_pooling_output</span></a><span class="Other">(</span><span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
-                           <span class="Identifier">input_padding</span><span class="Other">:</span> <a href="nnpack.html#nnp_padding"><span class="Identifier">nnp_padding</span></a><span class="Other">;</span> <span class="Identifier">pooling_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
-                           <span class="Identifier">pooling_stride</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                           <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_max_pooling_output&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="nnp_max_pooling_output,csize_t,csize_t,nnp_size,nnp_padding,nnp_size,nnp_size,ptr.cfloat,ptr.cfloat,pthreadpool_t"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#nnp_max_pooling_output%2Ccsize_t%2Ccsize_t%2Cnnp_size%2Cnnp_padding%2Cnnp_size%2Cnnp_size%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"><span class="Identifier">nnp_max_pooling_output</span></a><span class="Other">(</span><span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                            <span class="Identifier">input_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span> <span class="Identifier">input_padding</span><span class="Other">:</span> <a href="nnpack.html#nnp_padding"><span class="Identifier">nnp_padding</span></a><span class="Other">;</span>
+                            <span class="Identifier">pooling_size</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span> <span class="Identifier">pooling_stride</span><span class="Other">:</span> <a href="nnpack.html#nnp_size"><span class="Identifier">nnp_size</span></a><span class="Other">;</span>
+                            <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                            <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_max_pooling_output&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L428"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L430"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L428" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L430" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="nnp_softmax_output,csize,csize,ptr.cfloat,ptr.cfloat,pthreadpool_t"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#nnp_softmax_output%2Ccsize%2Ccsize%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"><span class="Identifier">nnp_softmax_output</span></a><span class="Other">(</span><span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                       <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_softmax_output&quot;</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="nnp_softmax_output,csize_t,csize_t,ptr.cfloat,ptr.cfloat,pthreadpool_t"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#nnp_softmax_output%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cptr.cfloat%2Cpthreadpool_t"><span class="Identifier">nnp_softmax_output</span></a><span class="Other">(</span><span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                        <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                        <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
+    <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_softmax_output&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L446"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L448"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L446" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L448" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="nnp_relu_output,csize,csize,ptr.cfloat,ptr.cfloat,cfloat,pthreadpool_t"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#nnp_relu_output%2Ccsize%2Ccsize%2Cptr.cfloat%2Cptr.cfloat%2Ccfloat%2Cpthreadpool_t"><span class="Identifier">nnp_relu_output</span></a><span class="Other">(</span><span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                    <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">negative_slope</span><span class="Other">:</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                    <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
+<a id="nnp_relu_output,csize_t,csize_t,ptr.cfloat,ptr.cfloat,cfloat,pthreadpool_t"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#nnp_relu_output%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cptr.cfloat%2Ccfloat%2Cpthreadpool_t"><span class="Identifier">nnp_relu_output</span></a><span class="Other">(</span><span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                     <span class="Identifier">output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">negative_slope</span><span class="Other">:</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                     <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_relu_output&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L461"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L463"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L461" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L463" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="nnp_relu_input_gradient,csize,csize,ptr.cfloat,ptr.cfloat,ptr.cfloat,cfloat,pthreadpool_t"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#nnp_relu_input_gradient%2Ccsize%2Ccsize%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Ccfloat%2Cpthreadpool_t"><span class="Identifier">nnp_relu_input_gradient</span></a><span class="Other">(</span><span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span> <span class="Identifier">channels</span><span class="Other">:</span> <span class="Identifier">csize</span><span class="Other">;</span>
-                            <span class="Identifier">grad_output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                            <span class="Identifier">grad_input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">negative_slope</span><span class="Other">:</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
-                            <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
+<a id="nnp_relu_input_gradient,csize_t,csize_t,ptr.cfloat,ptr.cfloat,ptr.cfloat,cfloat,pthreadpool_t"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#nnp_relu_input_gradient%2Ccsize_t%2Ccsize_t%2Cptr.cfloat%2Cptr.cfloat%2Cptr.cfloat%2Ccfloat%2Cpthreadpool_t"><span class="Identifier">nnp_relu_input_gradient</span></a><span class="Other">(</span><span class="Identifier">batch_size</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span> <span class="Identifier">channels</span><span class="Other">:</span> <span class="Identifier">csize_t</span><span class="Other">;</span>
+                             <span class="Identifier">grad_output</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                             <span class="Identifier">grad_input</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">cfloat</span><span class="Other">;</span> <span class="Identifier">negative_slope</span><span class="Other">:</span> <span class="Identifier">cfloat</span><span class="Other">;</span>
+                             <span class="Identifier">threadpool</span><span class="Other">:</span> <a href="nnpack.html#pthreadpool_t"><span class="Identifier">pthreadpool_t</span></a><span class="Other">)</span><span class="Other">:</span> <a href="nnpack.html#nnp_status"><span class="Identifier">nnp_status</span></a> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;nnp_relu_input_gradient&quot;</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_primitives/backend/nnpack.nim#L477"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L479"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_primitives/backend/nnpack.nim#L477" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_primitives/backend/nnpack.nim#L479" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -1010,7 +1067,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-04-19 14:11:37 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-12-27 09:30:18 UTC</small>
       </div>
     </div>
   </div>
@@ -1029,6 +1086,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="accessors_macros_syntax.html">accessors_macros_syntax</a></li>
 <li><a href="accessors_macros_write.html">accessors_macros_write</a></li>
 <li><a href="aggregate.html">aggregate</a></li>
+<li><a href="algorithms.html">algorithms</a></li>
 <li><a href="blas_l3_gemm.html">blas_l3_gemm</a></li>
 <li><a href="cublas.html">cublas</a></li>
 <li><a href="cuda.html">cuda</a></li>
@@ -1052,7 +1110,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="lapack.html">lapack</a></li>
 <li><a href="math_functions.html">math_functions</a></li>
 <li><a href="memory_optimization_hints.html">memory_optimization_hints</a></li>
-<li><a href="metadataArray.html">metadataArray</a></li>
 <li><a href="naive_l2_gemv.html">naive_l2_gemv</a></li>
 <li><a href="opencl_backend.html">opencl_backend</a></li>
 <li><a href="opencl_global_state.html">opencl_global_state</a></li>
@@ -1076,7 +1133,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="p_checks.html">p_checks</a></li>
 <li><a href="p_complex.html">p_complex</a></li>
 <li><a href="p_display.html">p_display</a></li>
-<li><a href="p_init_cpu.html">p_init_cpu</a></li>
+<li><a href="p_empty_tensors.html">p_empty_tensors</a></li>
 <li><a href="p_init_cuda.html">p_init_cuda</a></li>
 <li><a href="p_init_opencl.html">p_init_opencl</a></li>
 <li><a href="p_kernels_interface_cuda.html">p_kernels_interface_cuda</a></li>
@@ -1088,7 +1145,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="shapeshifting_cuda.html">shapeshifting_cuda</a></li>
 <li><a href="shapeshifting_opencl.html">shapeshifting_opencl</a></li>
 <li><a href="syntactic_sugar.html">syntactic_sugar</a></li>
-<li><a href="tensor.html">tensor</a></li>
 <li><a href="tensor_cuda.html">tensor_cuda</a></li>
 <li><a href="tensor_opencl.html">tensor_opencl</a></li>
 <li><a href="ufunc.html">ufunc</a></li>
@@ -1128,11 +1184,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="decomposition.html">Eigenvalue decomposition</a></li>
 <li><a href="decomposition_lapack.html">decomposition_lapack</a></li>
 <li><a href="decomposition_rand.html">Randomized Truncated SVD</a></li>
+<li><a href="distributions.html">distributions</a></li>
 <li><a href="init_colmajor.html">init_colmajor</a></li>
+<li><a href="kde.html">kde</a></li>
 <li><a href="kmeans.html">K-Means</a></li>
 <li><a href="least_squares.html">Least squares solver</a></li>
 <li><a href="least_squares_lapack.html">least_squares_lapack</a></li>
-<li><a href="linear_algebra.html">linear_algebra</a></li>
 <li><a href="linear_systems.html">Linear systems solver</a></li>
 <li><a href="overload.html">overload</a></li>
 <li><a href="pca.html">Principal Component Analysis (PCA)</a></li>
@@ -1173,7 +1230,6 @@ class="link-seesrc" target="_blank">Source</a>
           <li><a href="conv.html">conv</a></li>
 <li><a href="cudnn.html">cudnn</a></li>
 <li><a href="cudnn_conv_interface.html">cudnn_conv_interface</a></li>
-<li><a href="nn_primitives.html">nn_primitives</a></li>
 <li><a href="nnp_activation.html">Activations</a></li>
 <li><a href="nnp_conv2d_cudnn.html">Convolution 2D - CuDNN</a></li>
 <li><a href="nnp_convolution.html">Convolution 2D</a></li>
@@ -1200,6 +1256,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="ast_utils.html">ast_utils</a></li>
 <li><a href="compiler_optim_hints.html">compiler_optim_hints</a></li>
 <li><a href="cpuinfo_x86.html">cpuinfo_x86</a></li>
+<li><a href="datatypes.html">datatypes</a></li>
+<li><a href="deprecate.html">deprecate</a></li>
+<li><a href="dynamic_stack_arrays.html">dynamic_stack_arrays</a></li>
+<li><a href="foreach.html">foreach</a></li>
+<li><a href="foreach_common.html">foreach_common</a></li>
+<li><a href="foreach_staged.html">foreach_staged</a></li>
 <li><a href="functional.html">functional</a></li>
 <li><a href="gemm.html">gemm</a></li>
 <li><a href="gemm_packing.html">gemm_packing</a></li>
@@ -1217,11 +1279,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="gemm_ukernel_sse4_1.html">gemm_ukernel_sse4_1</a></li>
 <li><a href="gemm_utils.html">gemm_utils</a></li>
 <li><a href="global_config.html">global_config</a></li>
+<li><a href="initialization.html">initialization</a></li>
 <li><a href="math_ops_fusion.html">math_ops_fusion</a></li>
 <li><a href="memory.html">memory</a></li>
 <li><a href="nested_containers.html">nested_containers</a></li>
-<li><a href="nlp.html">nlp</a></li>
 <li><a href="openmp.html">openmp</a></li>
+<li><a href="p_raw_buffer_access.html">p_raw_buffer_access</a></li>
 <li><a href="sequninit.html">sequninit</a></li>
 <li><a href="simd.html">simd</a></li>
 <li><a href="tokenizers.html">tokenizers</a></li>

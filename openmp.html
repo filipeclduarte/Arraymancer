@@ -95,6 +95,9 @@ function main() {
   </div>
   <div id="global-links">
     <ul class="simple">
+    <li>
+      <a href="theindex.html">Index</a>
+    </li>
     </ul>
   </div>
   <div id="searchInputDiv">
@@ -110,32 +113,91 @@ function main() {
   </div>
   <ul class="simple simple-toc" id="toc-list">
 <li>
-  <a class="reference reference-toplevel" href="#6" id="56">Imports</a>
+  <a class="reference reference-toplevel" href="#10" id="60">Consts</a>
   <ul class="simple simple-toc-section">
-    
+      <li><a class="reference" href="#OMP_MEMORY_BOUND_GRAIN_SIZE"
+    title="OMP_MEMORY_BOUND_GRAIN_SIZE = 1024">OMP_MEMORY_BOUND_GRAIN_SIZE</a></li>
+  <li><a class="reference" href="#OMP_NON_CONTIGUOUS_SCALE_FACTOR"
+    title="OMP_NON_CONTIGUOUS_SCALE_FACTOR = 4">OMP_NON_CONTIGUOUS_SCALE_FACTOR</a></li>
+
+  </ul>
+</li>
+<li>
+  <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
+  <ul class="simple simple-toc-section">
+      <ul class="simple nested-toc-section">omp_suffix
+      <li><a class="reference" href="#omp_suffix%2Cstaticbool"
+    title="omp_suffix(genNew: static bool = false): string">omp_suffix,<wbr>staticbool</a></li>
+
+  </ul>
+
+  </ul>
+</li>
+<li>
+  <a class="reference reference-toplevel" href="#17" id="67">Macros</a>
+  <ul class="simple simple-toc-section">
+      <li><a class="reference" href="#omp_flush.m%2Cvarargs%5Buntyped%5D"
+    title="omp_flush(variables: varargs[untyped]): untyped">omp_flush</a></li>
+
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#18" id="68">Templates</a>
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#omp_set_num_threads.t%2Ccint"
-    title="omp_set_num_threads(x: cint)"><wbr />omp_<wbr />set_<wbr />num_<wbr />threads<span class="attachedType"></span></a></li>
+    title="omp_set_num_threads(x: cint)">omp_set_num_threads</a></li>
   <li><a class="reference" href="#omp_get_num_threads.t"
-    title="omp_get_num_threads(): cint"><wbr />omp_<wbr />get_<wbr />num_<wbr />threads<span class="attachedType"></span></a></li>
+    title="omp_get_num_threads(): cint">omp_get_num_threads</a></li>
   <li><a class="reference" href="#omp_get_max_threads.t"
-    title="omp_get_max_threads(): cint"><wbr />omp_<wbr />get_<wbr />max_<wbr />threads<span class="attachedType"></span></a></li>
+    title="omp_get_max_threads(): cint">omp_get_max_threads</a></li>
   <li><a class="reference" href="#omp_get_thread_num.t"
-    title="omp_get_thread_num(): cint"><wbr />omp_<wbr />get_<wbr />thread_<wbr />num<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#omp_parallel_countup.t%2Cuntyped%2CNatural%2Cuntyped"
-    title="omp_parallel_countup(i: untyped; size: Natural; body: untyped): untyped"><wbr />omp_<wbr />parallel_<wbr />countup<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#omp_parallel_forup.t%2Cuntyped%2CNatural%2CNatural%2Cuntyped"
-    title="omp_parallel_forup(i: untyped; start, size: Natural; body: untyped): untyped"><wbr />omp_<wbr />parallel_<wbr />forup<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#omp_parallel_blocks.t%2Cuntyped%2Cuntyped%2CNatural%2Cuntyped"
-    title="omp_parallel_blocks(block_offset, block_size: untyped; size: Natural; body: untyped): untyped"><wbr />omp_<wbr />parallel_<wbr />blocks<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#omp_parallel_reduce_blocks.t%2CT%2Cuntyped%2Cuntyped%2CNatural%2CNatural%2Cuntyped%2Cuntyped%2Cuntyped"
-    title="omp_parallel_reduce_blocks[T](reduced: T; block_offset, block_size: untyped;
-                              size, weight: Natural;
-                              op_final, op_init, op_middle: untyped): untyped"><wbr />omp_<wbr />parallel_<wbr />reduce_<wbr />blocks<span class="attachedType"></span></a></li>
+    title="omp_get_thread_num(): cint">omp_get_thread_num</a></li>
+  <li><a class="reference" href="#omp_set_nested.t%2Ccint"
+    title="omp_set_nested(x: cint)">omp_set_nested</a></li>
+  <li><a class="reference" href="#omp_get_nested.t"
+    title="omp_get_nested(): cint">omp_get_nested</a></li>
+  <li><a class="reference" href="#attachGC.t"
+    title="attachGC(): untyped">attachGC</a></li>
+  <li><a class="reference" href="#detachGC.t"
+    title="detachGC(): untyped">detachGC</a></li>
+  <li><a class="reference" href="#omp_parallel.t%2Cuntyped"
+    title="omp_parallel(body: untyped): untyped">omp_parallel</a></li>
+  <li><a class="reference" href="#omp_parallel_if.t%2Cbool%2Cuntyped"
+    title="omp_parallel_if(condition: bool; body: untyped)">omp_parallel_if</a></li>
+  <li><a class="reference" href="#omp_for.t%2Cuntyped%2CNatural%2Cstaticbool%2Cstaticbool%2Cuntyped"
+    title="omp_for(index: untyped; length: Natural; use_simd, nowait: static bool;
+        body: untyped)">omp_for</a></li>
+  <li><a class="reference" href="#omp_parallel_for.t%2Cuntyped%2CNatural%2CstaticNatural%2Cstaticbool%2Cuntyped"
+    title="omp_parallel_for(index: untyped; length: Natural;
+                 omp_grain_size: static Natural; use_simd: static bool;
+                 body: untyped)">omp_parallel_for</a></li>
+  <li><a class="reference" href="#omp_parallel_for_default.t%2Cuntyped%2CNatural%2Cuntyped"
+    title="omp_parallel_for_default(index: untyped; length: Natural; body: untyped)">omp_parallel_for_default</a></li>
+  <li><a class="reference" href="#omp_chunks.t%2CNatural%2Cuntyped%2Cuntyped%2Cuntyped"
+    title="omp_chunks(omp_size: Natural; chunk_offset, chunk_size: untyped; body: untyped): untyped">omp_chunks</a></li>
+  <li><a class="reference" href="#omp_parallel_chunks.t%2CNatural%2Cuntyped%2Cuntyped%2CstaticNatural%2Cuntyped"
+    title="omp_parallel_chunks(length: Natural; chunk_offset, chunk_size: untyped;
+                    omp_grain_size: static Natural; body: untyped): untyped">omp_parallel_chunks</a></li>
+  <li><a class="reference" href="#omp_parallel_chunks_default.t%2CNatural%2Cuntyped%2Cuntyped%2Cuntyped"
+    title="omp_parallel_chunks_default(length: Natural; chunk_offset, chunk_size: untyped;
+                            body: untyped): untyped">omp_parallel_chunks_default</a></li>
+  <li><a class="reference" href="#omp_critical.t%2Cuntyped"
+    title="omp_critical(body: untyped): untyped">omp_critical</a></li>
+  <li><a class="reference" href="#omp_master.t%2Cuntyped"
+    title="omp_master(body: untyped): untyped">omp_master</a></li>
+  <li><a class="reference" href="#omp_single.t%2Cuntyped"
+    title="omp_single(body: untyped): untyped">omp_single</a></li>
+  <li><a class="reference" href="#omp_single_nowait.t%2Cuntyped"
+    title="omp_single_nowait(body: untyped): untyped">omp_single_nowait</a></li>
+  <li><a class="reference" href="#omp_barrier.t"
+    title="omp_barrier(): untyped">omp_barrier</a></li>
+  <li><a class="reference" href="#omp_task.t%2Cstaticstring%2Cuntyped"
+    title="omp_task(annotation: static string; body: untyped): untyped">omp_task</a></li>
+  <li><a class="reference" href="#omp_taskwait.t"
+    title="omp_taskwait(): untyped">omp_taskwait</a></li>
+  <li><a class="reference" href="#omp_taskloop.t%2Cuntyped%2CNatural%2Cstaticstring%2Cuntyped"
+    title="omp_taskloop(index: untyped; length: Natural; annotation: static string;
+             body: untyped)">omp_taskloop</a></li>
 
   </ul>
 </li>
@@ -143,14 +205,98 @@ function main() {
 </ul>
 
   </div>
+  &nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L1"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
+
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
   
   <p class="module-desc"></p>
-  <div class="section" id="6">
-<h1><a class="toc-backref" href="#6">Imports</a></h1>
+  <div class="section" id="10">
+<h1><a class="toc-backref" href="#10">Consts</a></h1>
 <dl class="item">
-<a class="reference external" href="global_config.html">global_config</a>, <a class="reference external" href="memory_optimization_hints.html">memory_optimization_hints</a>
+<a id="OMP_MEMORY_BOUND_GRAIN_SIZE"></a>
+<dt><pre><a href="openmp.html#OMP_MEMORY_BOUND_GRAIN_SIZE"><span class="Identifier">OMP_MEMORY_BOUND_GRAIN_SIZE</span></a> <span class="Other">=</span> <span class="DecNumber">1024</span></pre></dt>
+<dd>
+
+This is the minimum amount of work per physical cores for memory-bound processing.<ul class="simple"><li>&quot;copy&quot; and &quot;addition&quot; are considered memory-bound</li>
+<li>&quot;float division&quot; can be considered 2x~4x more complex and should be scaled down accordingly</li>
+<li>&quot;exp&quot; and &quot;sin&quot; operations are compute-bound and there is a perf boost even when processing only 1000 items on 28 cores</li>
+</ul>
+<dl class="docutils"><dt>Launching 2 threads per core (HyperThreading) is probably desirable:</dt>
+<dd><ul class="simple"><li><a class="reference external" href="https://medium.com/data-design/destroying-the-myth-of-number-of-threads-number-of-physical-cores-762ad3919880">https://medium.com/data-design/destroying-the-myth-of-number-of-threads-number-of-physical-cores-762ad3919880</a></li>
+</ul>
+</dd>
+<dt>Raising the following parameters can have the following impact:</dt>
+<dd><ul class="simple"><li>number of sockets: higher, more over memory fetch</li>
+<li>number of memory channel: lower, less overhead per memory fetch</li>
+<li>RAM speed: lower, less overhead per memory fetch</li>
+<li>Private L2 cache: higher, feed more data per CPU</li>
+<li>Hyperthreading and cache associativity</li>
+<li>Cores, shared L3 cache: Memory contention</li>
+</ul>
+</dd>
+<dt>Note that setting num_threads manually might impact performance negatively:</dt>
+<dd><ul class="simple"><li><a class="reference external" href="http://studio.myrian.fr/openmp-et-num_threads">http://studio.myrian.fr/openmp-et-num_threads</a>/ &gt; 2x2ms overhead when changing num_threads from 16-&gt;6-&gt;16</li>
+</ul>
+</dd>
+</dl>
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L58"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L58" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="OMP_NON_CONTIGUOUS_SCALE_FACTOR"></a>
+<dt><pre><a href="openmp.html#OMP_NON_CONTIGUOUS_SCALE_FACTOR"><span class="Identifier">OMP_NON_CONTIGUOUS_SCALE_FACTOR</span></a> <span class="Other">=</span> <span class="DecNumber">4</span></pre></dt>
+<dd>
+
+Due to striding computation, we can use a lower grainsize for non-contiguous tensors
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L83"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L83" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+
+</dl></div>
+<div class="section" id="12">
+<h1><a class="toc-backref" href="#12">Procs</a></h1>
+<dl class="item">
+<a id="omp_suffix,staticbool"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#omp_suffix%2Cstaticbool"><span class="Identifier">omp_suffix</span></a><span class="Other">(</span><span class="Identifier">genNew</span><span class="Other">:</span> <span class="Identifier">static</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">false</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">compileTime</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+<dl class="docutils"><dt>genNew:</dt>
+<dd>if false, return the last suffix else return a fresh one</dd>
+</dl>
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L16"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L16" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+
+</dl></div>
+<div class="section" id="17">
+<h1><a class="toc-backref" href="#17">Macros</a></h1>
+<dl class="item">
+<a id="omp_flush.m,varargs[untyped]"></a>
+<dt><pre><span class="Keyword">macro</span> <a href="#omp_flush.m%2Cvarargs%5Buntyped%5D"><span class="Identifier">omp_flush</span></a><span class="Other">(</span><span class="Identifier">variables</span><span class="Other">:</span> <span class="Identifier">varargs</span><span class="Other">[</span><span class="Identifier">untyped</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L400"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L400" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+
 </dl></div>
 <div class="section" id="18">
 <h1><a class="toc-backref" href="#18">Templates</a></h1>
@@ -161,9 +307,9 @@ function main() {
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/openmp.nim#L31"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L45"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/openmp.nim#L31" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L45" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="omp_get_num_threads.t"></a>
@@ -172,9 +318,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/openmp.nim#L32"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L46"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/openmp.nim#L32" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L46" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="omp_get_max_threads.t"></a>
@@ -183,9 +329,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/openmp.nim#L33"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L47"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/openmp.nim#L33" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L47" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="omp_get_thread_num.t"></a>
@@ -194,57 +340,300 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/openmp.nim#L34"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L48"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/openmp.nim#L34" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L48" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="omp_parallel_countup.t,untyped,Natural,untyped"></a>
-<dt><pre><span class="Keyword">template</span> <a href="#omp_parallel_countup.t%2Cuntyped%2CNatural%2Cuntyped"><span class="Identifier">omp_parallel_countup</span></a><span class="Other">(</span><span class="Identifier">i</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">size</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<a id="omp_set_nested.t,cint"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_set_nested.t%2Ccint"><span class="Identifier">omp_set_nested</span></a><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <span class="Identifier">cint</span><span class="Other">)</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/openmp.nim#L41"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L49"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/openmp.nim#L41" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L49" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="omp_parallel_forup.t,untyped,Natural,Natural,untyped"></a>
-<dt><pre><span class="Keyword">template</span> <a href="#omp_parallel_forup.t%2Cuntyped%2CNatural%2CNatural%2Cuntyped"><span class="Identifier">omp_parallel_forup</span></a><span class="Other">(</span><span class="Identifier">i</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">start</span><span class="Other">,</span> <span class="Identifier">size</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<a id="omp_get_nested.t"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_get_nested.t"><span class="Identifier">omp_get_nested</span></a><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">cint</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/openmp.nim#L46"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L50"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/openmp.nim#L46" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L50" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="omp_parallel_blocks.t,untyped,untyped,Natural,untyped"></a>
-<dt><pre><span class="Keyword">template</span> <a href="#omp_parallel_blocks.t%2Cuntyped%2Cuntyped%2CNatural%2Cuntyped"><span class="Identifier">omp_parallel_blocks</span></a><span class="Other">(</span><span class="Identifier">block_offset</span><span class="Other">,</span> <span class="Identifier">block_size</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">size</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span>
-                            <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<a id="attachGC.t"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#attachGC.t"><span class="Identifier">attachGC</span></a><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+<p>If you are allocating reference types, sequences or strings in a parallel section, you need to attach and detach a GC for each thread. Those should be thread-local temporaries.</p>
+<p>This attaches the GC.</p>
+<p>Note: this creates too strange error messages when --threads is not on: <a class="reference external" href="https://github.com/nim-lang/Nim/issues/9489">https://github.com/nim-lang/Nim/issues/9489</a></p>
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L89"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L89" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="detachGC.t"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#detachGC.t"><span class="Identifier">detachGC</span></a><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+<p>If you are allocating reference types, sequences or strings in a parallel section, you need to attach and detach a GC for each thread. Those should be thread-local temporaries.</p>
+<p>This detaches the GC.</p>
+<p>Note: this creates too strange error messages when --threads is not on: <a class="reference external" href="https://github.com/nim-lang/Nim/issues/9489">https://github.com/nim-lang/Nim/issues/9489</a></p>
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L101"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L101" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_parallel.t,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_parallel.t%2Cuntyped"><span class="Identifier">omp_parallel</span></a><span class="Other">(</span><span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+<p>Starts an openMP parallel section</p>
+<p>Don't forget to use attachGC and detachGC if you are allocating sequences, strings, or reference types. Those should be thread-local temporaries.</p>
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L113"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L113" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_parallel_if.t,bool,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_parallel_if.t%2Cbool%2Cuntyped"><span class="Identifier">omp_parallel_if</span></a><span class="Other">(</span><span class="Identifier">condition</span><span class="Other">:</span> <span class="Identifier">bool</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/openmp.nim#L51"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L125"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/openmp.nim#L51" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L125" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<a id="omp_parallel_reduce_blocks.t,T,untyped,untyped,Natural,Natural,untyped,untyped,untyped"></a>
-<dt><pre><span class="Keyword">template</span> <a href="#omp_parallel_reduce_blocks.t%2CT%2Cuntyped%2Cuntyped%2CNatural%2CNatural%2Cuntyped%2Cuntyped%2Cuntyped"><span class="Identifier">omp_parallel_reduce_blocks</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">reduced</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">;</span>
-                                      <span class="Identifier">block_offset</span><span class="Other">,</span> <span class="Identifier">block_size</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span>
-                                      <span class="Identifier">size</span><span class="Other">,</span> <span class="Identifier">weight</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span>
-                                      <span class="Identifier">op_final</span><span class="Other">,</span> <span class="Identifier">op_init</span><span class="Other">,</span> <span class="Identifier">op_middle</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<a id="omp_for.t,untyped,Natural,staticbool,staticbool,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_for.t%2Cuntyped%2CNatural%2Cstaticbool%2Cstaticbool%2Cuntyped"><span class="Identifier">omp_for</span></a><span class="Other">(</span><span class="Identifier">index</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">length</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span> <span class="Identifier">use_simd</span><span class="Other">,</span> <span class="Identifier">nowait</span><span class="Other">:</span> <span class="Identifier">static</span> <span class="Identifier">bool</span><span class="Other">;</span>
+                 <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span></pre></dt>
+<dd>
+
+<p>OpenMP for loop (not parallel)</p>
+<p>This must be used in an <tt class="docutils literal"><span class="pre">omp_parallel</span></tt> block for parallelization.</p>
+<dl class="docutils"><dt>Inputs:</dt>
+<dd><ul class="simple"><li><tt class="docutils literal"><span class="pre">index</span></tt>, the iteration index, similar to<dl class="docutils"><dt>for <tt class="docutils literal"><span class="pre">index</span></tt> in 0 ..&lt; length:</dt>
+<dd>doSomething(<tt class="docutils literal"><span class="pre">index</span></tt>)</dd>
+</dl>
+</li>
+<li><tt class="docutils literal"><span class="pre">length</span></tt>, the number of elements to iterate on</li>
+<li><tt class="docutils literal"><span class="pre">use_simd</span></tt>, instruct the compiler to unroll the loops for <tt class="docutils literal"><span class="pre">simd</span></tt> use. For example, for float32:<dl class="docutils"><dt>for i in 0..&lt;16:</dt>
+<dd>x[i] += y[i]</dd>
+</dl>
+<p>will be unrolled to take 128, 256 or 512-bit to use SSE, AVX or AVX512. for 256-bit AVX:</p>
+<dl class="docutils"><dt>for i in countup(0, 2, 8): # Step 8 by 8</dt>
+<dd>x[i]   += y[i] x[i+1] += y[i+1] x[i+2] += y[i+2] ...</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L133"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L133" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_parallel_for.t,untyped,Natural,staticNatural,staticbool,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_parallel_for.t%2Cuntyped%2CNatural%2CstaticNatural%2Cstaticbool%2Cuntyped"><span class="Identifier">omp_parallel_for</span></a><span class="Other">(</span><span class="Identifier">index</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">length</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span>
+                          <span class="Identifier">omp_grain_size</span><span class="Other">:</span> <span class="Identifier">static</span> <span class="Identifier">Natural</span><span class="Other">;</span> <span class="Identifier">use_simd</span><span class="Other">:</span> <span class="Identifier">static</span> <span class="Identifier">bool</span><span class="Other">;</span>
+                          <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span></pre></dt>
+<dd>
+
+<p>Parallel for loop</p>
+<p>Do not forget to use attachGC and detachGC if you are allocating sequences, strings, or reference types. Those should be thread-local temporaries.</p>
+<dl class="docutils"><dt>Inputs:</dt>
+<dd><ul class="simple"><li><tt class="docutils literal"><span class="pre">index</span></tt>, the iteration index, similar to<dl class="docutils"><dt>for <tt class="docutils literal"><span class="pre">index</span></tt> in 0 ..&lt; length:</dt>
+<dd>doSomething(<tt class="docutils literal"><span class="pre">index</span></tt>)</dd>
+</dl>
+</li>
+<li><tt class="docutils literal"><span class="pre">length</span></tt>, the number of elements to iterate on</li>
+<li><tt class="docutils literal"><span class="pre">omp_grain_size</span></tt>, the minimal amount of work per thread. If below, we don't start threads. Note that we always start as much hardware threads as available as starting varying number of threads in the lifetime of the program will add oberhead.</li>
+<li><tt class="docutils literal"><span class="pre">use_simd</span></tt>, instruct the compiler to unroll the loops for <tt class="docutils literal"><span class="pre">simd</span></tt> use. For example, for float32:<dl class="docutils"><dt>for i in 0..&lt;16:</dt>
+<dd>x[i] += y[i]</dd>
+</dl>
+<p>will be unrolled to take 128, 256 or 512-bit to use SSE, AVX or AVX512. for 256-bit AVX:</p>
+<dl class="docutils"><dt>for i in countup(0, 2, 8): # Step 8 by 8</dt>
+<dd>x[i]   += y[i] x[i+1] += y[i+1] x[i+2] += y[i+2] ...</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L167"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L167" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_parallel_for_default.t,untyped,Natural,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_parallel_for_default.t%2Cuntyped%2CNatural%2Cuntyped"><span class="Identifier">omp_parallel_for_default</span></a><span class="Other">(</span><span class="Identifier">index</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">length</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span></pre></dt>
+<dd>
+
+This will be renamed omp_parallel_for once <a class="reference external" href="https://github.com/nim-lang/Nim/issues/9414">https://github.com/nim-lang/Nim/issues/9414</a> is solved. Compared to omp_parallel_for the following are set by default<ul class="simple"><li><dl class="docutils"><dt>omp_grain_size:</dt>
+<dd>The default <tt class="docutils literal"><span class="pre">OMP_MEMORY_BOUND_GRAIN_SIZE</span></tt> is suitable for contiguous copy or add operations. It's 1024 and can be changed by passing <tt class="docutils literal"><span class="pre">-d:OMP_MEMORY_BOUND_GRAIN_SIZE=123456</span></tt> during compilation. A value of 1 will always parallelize the loop.</dd>
+</dl>
+</li>
+<li>simd is used by default</li>
+</ul>
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L225"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L225" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_chunks.t,Natural,untyped,untyped,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_chunks.t%2CNatural%2Cuntyped%2Cuntyped%2Cuntyped"><span class="Identifier">omp_chunks</span></a><span class="Other">(</span><span class="Identifier">omp_size</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span> <span class="Identifier">chunk_offset</span><span class="Other">,</span> <span class="Identifier">chunk_size</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span>
+                    <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+Internal proc This is is the chunk part of omp_parallel_chunk omp_size should be a lvalue (assigned value) and not the result of a routine otherwise routine and its side-effect will be called multiple times
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L247"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L247" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_parallel_chunks.t,Natural,untyped,untyped,staticNatural,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_parallel_chunks.t%2CNatural%2Cuntyped%2Cuntyped%2CstaticNatural%2Cuntyped"><span class="Identifier">omp_parallel_chunks</span></a><span class="Other">(</span><span class="Identifier">length</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span> <span class="Identifier">chunk_offset</span><span class="Other">,</span> <span class="Identifier">chunk_size</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span>
+                             <span class="Identifier">omp_grain_size</span><span class="Other">:</span> <span class="Identifier">static</span> <span class="Identifier">Natural</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+<p>Create a chunk for each thread. You can use: <tt class="docutils literal"><span class="pre">for index in chunk_offset ..&lt; chunk_size:</span></tt> or <tt class="docutils literal"><span class="pre">zeroMem(foo[chunk_offset].addr, chunk_size)</span></tt></p>
+<p>Splits the input <tt class="docutils literal"><span class="pre">length</span></tt> into chunks and do a parallel loop on each chunk. The number of chunks depends on the number of cores at runtime. <tt class="docutils literal"><span class="pre">chunk_offset</span></tt> and <tt class="docutils literal"><span class="pre">chunk_size</span></tt> should be passed as undeclared identifiers. Within the template scope they will contain the start offset and the length of the current thread chunk. I.e. their value is thread-specific.</p>
+<p>Use omp_get_thread_num() to get the current thread number</p>
+<p>This is useful for non-contiguous processing as a replacement to omp_parallel_for or when operating on (contiguous) ranges for example for memset or memcpy.</p>
+<p>Do not forget to use attachGC and detachGC if you are allocating sequences, strings, or reference types. Those should be thread-local temporaries.</p>
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L293"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L293" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_parallel_chunks_default.t,Natural,untyped,untyped,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_parallel_chunks_default.t%2CNatural%2Cuntyped%2Cuntyped%2Cuntyped"><span class="Identifier">omp_parallel_chunks_default</span></a><span class="Other">(</span><span class="Identifier">length</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span>
+                                     <span class="Identifier">chunk_offset</span><span class="Other">,</span> <span class="Identifier">chunk_size</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span>
+                                     <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+This will be renamed omp_parallel_chunks once <a class="reference external" href="https://github.com/nim-lang/Nim/issues/9414">https://github.com/nim-lang/Nim/issues/9414</a> is solved. Compared to omp_parallel_for the following are set by default<ul class="simple"><li><dl class="docutils"><dt>omp_grain_size:</dt>
+<dd>The default <tt class="docutils literal"><span class="pre">OMP_MEMORY_BOUND_GRAIN_SIZE</span></tt> is suitable for contiguous copy or add operations. It's 1024 and can be changed by passing <tt class="docutils literal"><span class="pre">-d:OMP_MEMORY_BOUND_GRAIN_SIZE=123456</span></tt> during compilation. A value of 1 will always parallelize the loop.</dd>
+</dl>
+</li>
+</ul>
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L327"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L327" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_critical.t,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_critical.t%2Cuntyped"><span class="Identifier">omp_critical</span></a><span class="Other">(</span><span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/tensor/backend/openmp.nim#L76"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L348"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/tensor/backend/openmp.nim#L76" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L348" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_master.t,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_master.t%2Cuntyped"><span class="Identifier">omp_master</span></a><span class="Other">(</span><span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L354"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L354" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_single.t,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_single.t%2Cuntyped"><span class="Identifier">omp_single</span></a><span class="Other">(</span><span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L360"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L360" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_single_nowait.t,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_single_nowait.t%2Cuntyped"><span class="Identifier">omp_single_nowait</span></a><span class="Other">(</span><span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L366"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L366" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_barrier.t"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_barrier.t"><span class="Identifier">omp_barrier</span></a><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L372"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L372" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_task.t,staticstring,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_task.t%2Cstaticstring%2Cuntyped"><span class="Identifier">omp_task</span></a><span class="Other">(</span><span class="Identifier">annotation</span><span class="Other">:</span> <span class="Identifier">static</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L377"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L377" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_taskwait.t"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_taskwait.t"><span class="Identifier">omp_taskwait</span></a><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L383"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L383" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<a id="omp_taskloop.t,untyped,Natural,staticstring,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#omp_taskloop.t%2Cuntyped%2CNatural%2Cstaticstring%2Cuntyped"><span class="Identifier">omp_taskloop</span></a><span class="Other">(</span><span class="Identifier">index</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">length</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">;</span>
+                      <span class="Identifier">annotation</span><span class="Other">:</span> <span class="Identifier">static</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span></pre></dt>
+<dd>
+
+OpenMP taskloop
+&nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/laser/openmp.nim#L388"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/laser/openmp.nim#L388" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -257,7 +646,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-04-19 14:11:21 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-12-27 09:29:24 UTC</small>
       </div>
     </div>
   </div>
@@ -276,6 +665,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="accessors_macros_syntax.html">accessors_macros_syntax</a></li>
 <li><a href="accessors_macros_write.html">accessors_macros_write</a></li>
 <li><a href="aggregate.html">aggregate</a></li>
+<li><a href="algorithms.html">algorithms</a></li>
 <li><a href="blas_l3_gemm.html">blas_l3_gemm</a></li>
 <li><a href="cublas.html">cublas</a></li>
 <li><a href="cuda.html">cuda</a></li>
@@ -299,7 +689,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="lapack.html">lapack</a></li>
 <li><a href="math_functions.html">math_functions</a></li>
 <li><a href="memory_optimization_hints.html">memory_optimization_hints</a></li>
-<li><a href="metadataArray.html">metadataArray</a></li>
 <li><a href="naive_l2_gemv.html">naive_l2_gemv</a></li>
 <li><a href="opencl_backend.html">opencl_backend</a></li>
 <li><a href="opencl_global_state.html">opencl_global_state</a></li>
@@ -323,7 +712,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="p_checks.html">p_checks</a></li>
 <li><a href="p_complex.html">p_complex</a></li>
 <li><a href="p_display.html">p_display</a></li>
-<li><a href="p_init_cpu.html">p_init_cpu</a></li>
+<li><a href="p_empty_tensors.html">p_empty_tensors</a></li>
 <li><a href="p_init_cuda.html">p_init_cuda</a></li>
 <li><a href="p_init_opencl.html">p_init_opencl</a></li>
 <li><a href="p_kernels_interface_cuda.html">p_kernels_interface_cuda</a></li>
@@ -335,7 +724,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="shapeshifting_cuda.html">shapeshifting_cuda</a></li>
 <li><a href="shapeshifting_opencl.html">shapeshifting_opencl</a></li>
 <li><a href="syntactic_sugar.html">syntactic_sugar</a></li>
-<li><a href="tensor.html">tensor</a></li>
 <li><a href="tensor_cuda.html">tensor_cuda</a></li>
 <li><a href="tensor_opencl.html">tensor_opencl</a></li>
 <li><a href="ufunc.html">ufunc</a></li>
@@ -375,11 +763,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="decomposition.html">Eigenvalue decomposition</a></li>
 <li><a href="decomposition_lapack.html">decomposition_lapack</a></li>
 <li><a href="decomposition_rand.html">Randomized Truncated SVD</a></li>
+<li><a href="distributions.html">distributions</a></li>
 <li><a href="init_colmajor.html">init_colmajor</a></li>
+<li><a href="kde.html">kde</a></li>
 <li><a href="kmeans.html">K-Means</a></li>
 <li><a href="least_squares.html">Least squares solver</a></li>
 <li><a href="least_squares_lapack.html">least_squares_lapack</a></li>
-<li><a href="linear_algebra.html">linear_algebra</a></li>
 <li><a href="linear_systems.html">Linear systems solver</a></li>
 <li><a href="overload.html">overload</a></li>
 <li><a href="pca.html">Principal Component Analysis (PCA)</a></li>
@@ -420,7 +809,6 @@ class="link-seesrc" target="_blank">Source</a>
           <li><a href="conv.html">conv</a></li>
 <li><a href="cudnn.html">cudnn</a></li>
 <li><a href="cudnn_conv_interface.html">cudnn_conv_interface</a></li>
-<li><a href="nn_primitives.html">nn_primitives</a></li>
 <li><a href="nnp_activation.html">Activations</a></li>
 <li><a href="nnp_conv2d_cudnn.html">Convolution 2D - CuDNN</a></li>
 <li><a href="nnp_convolution.html">Convolution 2D</a></li>
@@ -447,6 +835,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="ast_utils.html">ast_utils</a></li>
 <li><a href="compiler_optim_hints.html">compiler_optim_hints</a></li>
 <li><a href="cpuinfo_x86.html">cpuinfo_x86</a></li>
+<li><a href="datatypes.html">datatypes</a></li>
+<li><a href="deprecate.html">deprecate</a></li>
+<li><a href="dynamic_stack_arrays.html">dynamic_stack_arrays</a></li>
+<li><a href="foreach.html">foreach</a></li>
+<li><a href="foreach_common.html">foreach_common</a></li>
+<li><a href="foreach_staged.html">foreach_staged</a></li>
 <li><a href="functional.html">functional</a></li>
 <li><a href="gemm.html">gemm</a></li>
 <li><a href="gemm_packing.html">gemm_packing</a></li>
@@ -464,11 +858,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="gemm_ukernel_sse4_1.html">gemm_ukernel_sse4_1</a></li>
 <li><a href="gemm_utils.html">gemm_utils</a></li>
 <li><a href="global_config.html">global_config</a></li>
+<li><a href="initialization.html">initialization</a></li>
 <li><a href="math_ops_fusion.html">math_ops_fusion</a></li>
 <li><a href="memory.html">memory</a></li>
 <li><a href="nested_containers.html">nested_containers</a></li>
-<li><a href="nlp.html">nlp</a></li>
 <li><a href="openmp.html">openmp</a></li>
+<li><a href="p_raw_buffer_access.html">p_raw_buffer_access</a></li>
 <li><a href="sequninit.html">sequninit</a></li>
 <li><a href="simd.html">simd</a></li>
 <li><a href="tokenizers.html">tokenizers</a></li>

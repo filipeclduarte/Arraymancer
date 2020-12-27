@@ -1,0 +1,2 @@
+`[]`	p_raw_buffer_access.html#[],Tensor[T: not KnownSupportsCopyMem],int	p_raw_buffer_access: `[]`[T: not KnownSupportsCopyMem](t: Tensor[T]; idx: int): T	
+`[]=`	p_raw_buffer_access.html#[]=,Tensor[T: not KnownSupportsCopyMem],int,T	p_raw_buffer_access: `[]=`[T: not KnownSupportsCopyMem](t: var Tensor[T]; idx: int; val: T)	

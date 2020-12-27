@@ -18,6 +18,6 @@ mabs	math_functions.html#mabs,Tensor[T]	math_functions: mabs[T](t: var Tensor[T]
 clamp	math_functions.html#clamp,Tensor[T],T,T	math_functions: clamp[T](t: Tensor[T]; min, max: T): Tensor[T]	
 mclamp	math_functions.html#mclamp,Tensor[T],T,T	math_functions: mclamp[T](t: var Tensor[T]; min, max: T)	
 square	math_functions.html#square,T	math_functions: square[T](x: T): T	
-square	math_functions.html#square,Tensor	math_functions: square(t`gensym15110344: Tensor): Tensor	
+square	math_functions.html#square	math_functions: square[T](t`gensym90: Tensor[T]): Tensor[T]	
 square	math_functions.html#square,T_2	math_functions: square[T](x: T): T	
-square	math_functions.html#square,Tensor_2	math_functions: square(t`gensym15110344: Tensor): Tensor	
+square	math_functions.html#square_2	math_functions: square[T](t`gensym90: Tensor[T]): Tensor[T]	

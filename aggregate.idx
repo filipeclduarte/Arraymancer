@@ -16,5 +16,7 @@ variance	aggregate.html#variance,Tensor[T: SomeFloat]	aggregate: variance[T: Som
 variance	aggregate.html#variance,Tensor[T: SomeFloat],int	aggregate: variance[T: SomeFloat](t: Tensor[T]; axis: int): Tensor[T]	
 std	aggregate.html#std,Tensor[T: SomeFloat]	aggregate: std[T: SomeFloat](t: Tensor[T]): T	
 std	aggregate.html#std,Tensor[T: SomeFloat],int	aggregate: std[T: SomeFloat](t: Tensor[T]; axis: int): Tensor[T]	
-argmax_max	aggregate.html#argmax_max,Tensor[T],int	aggregate: argmax_max[T](t: Tensor[T]; axis: int): tuple[indices: Tensor[int], maxes: Tensor[T]]	
+argmax_max	aggregate.html#argmax_max,Tensor[T: SomeNumber],int	aggregate: argmax_max[T: SomeNumber](t: Tensor[T]; axis: int): tuple[indices: Tensor[int],\n    maxes: Tensor[T]]	
 argmax	aggregate.html#argmax,Tensor[T],int	aggregate: argmax[T](t: Tensor[T]; axis: int): Tensor[int]	
+percentile	aggregate.html#percentile,Tensor[T],int	aggregate: percentile[T](t: Tensor[T]; p: int; isSorted = false): float	
+iqr	aggregate.html#iqr,Tensor[T]	aggregate: iqr[T](t: Tensor[T]): float	

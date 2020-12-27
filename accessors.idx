@@ -14,19 +14,19 @@ mpairs	accessors.html#mpairs.i,Tensor[T]	accessors: mpairs[T](t: var Tensor[T]):
 zip	accessors.html#zip.i,Tensor[T],Tensor[U]	accessors: zip[T, U](t1: Tensor[T]; t2: Tensor[U]): (T, U)	
 zip	accessors.html#zip.i,Tensor[T],Tensor[U],int,int	accessors: zip[T, U](t1: Tensor[T]; t2: Tensor[U]; offset, size: int): (T, U)	
 zip	accessors.html#zip.i,Tensor[T],Tensor[U],Tensor[V]	accessors: zip[T, U, V](t1: Tensor[T]; t2: Tensor[U]; t3: Tensor[V]): (T, U, V)	
-zip	accessors.html#zip.i,Tensor[T],Tensor[U],Tensor[V],int,int	accessors: zip[T, U, V](t1: Tensor[T]; t2: Tensor[U]; t3: Tensor[V]; offset, size: int): (T, U, V)	
+zip	accessors.html#zip.i,Tensor[T],Tensor[U],Tensor[V],int,int	accessors: zip[T, U, V](t1: Tensor[T]; t2: Tensor[U]; t3: Tensor[V]; offset, size: int): (\n    T, U, V)	
 mzip	accessors.html#mzip.i,Tensor[T],Tensor[U]	accessors: mzip[T, U](t1: var Tensor[T]; t2: Tensor[U]): (var T, U)	
 mzip	accessors.html#mzip.i,Tensor[T],Tensor[U],int,int	accessors: mzip[T, U](t1: var Tensor[T]; t2: Tensor[U]; offset, size: int): (var T, U)	
 mzip	accessors.html#mzip.i,Tensor[T],Tensor[U],Tensor[V]	accessors: mzip[T, U, V](t1: var Tensor[T]; t2: Tensor[U]; t3: Tensor[V]): (var T, U, V)	
-mzip	accessors.html#mzip.i,Tensor[T],Tensor[U],Tensor[V],int,int	accessors: mzip[T, U, V](t1: var Tensor[T]; t2: Tensor[U]; t3: Tensor[V]; offset, size: int): (var T, U, V)	
+mzip	accessors.html#mzip.i,Tensor[T],Tensor[U],Tensor[V],int,int	accessors: mzip[T, U, V](t1: var Tensor[T]; t2: Tensor[U]; t3: Tensor[V]; offset, size: int): (\n    var T, U, V)	
 enumerateZip	accessors.html#enumerateZip.i,Tensor[T],Tensor[U]	accessors: enumerateZip[T, U](t1: Tensor[T]; t2: Tensor[U]): (int, T, U)	
 enumerateZip	accessors.html#enumerateZip.i,Tensor[T],Tensor[U],int,int	accessors: enumerateZip[T, U](t1: Tensor[T]; t2: Tensor[U]; offset, size: int): (int, T, U)	
-enumerateZip	accessors.html#enumerateZip.i,Tensor[T],Tensor[U],Tensor[V]	accessors: enumerateZip[T, U, V](t1: Tensor[T]; t2: Tensor[U]; t3: Tensor[V]): (int, T, U, V)	
-enumerateZip	accessors.html#enumerateZip.i,Tensor[T],Tensor[U],Tensor[V],int,int	accessors: enumerateZip[T, U, V](t1: Tensor[T]; t2: Tensor[U]; t3: Tensor[V]; offset, size: int): (\n    int, T, U, V)	
+enumerateZip	accessors.html#enumerateZip.i,Tensor[T],Tensor[U],Tensor[V]	accessors: enumerateZip[T, U, V](t1: Tensor[T]; t2: Tensor[U]; t3: Tensor[V]): (int, T, U,\n    V)	
+enumerateZip	accessors.html#enumerateZip.i,Tensor[T],Tensor[U],Tensor[V],int,int	accessors: enumerateZip[T, U, V](t1: Tensor[T]; t2: Tensor[U]; t3: Tensor[V];\n                      offset, size: int): (int, T, U, V)	
 menumerateZip	accessors.html#menumerateZip.i,Tensor[T],Tensor[U]	accessors: menumerateZip[T, U](t1: var Tensor[T]; t2: Tensor[U]): (int, var T, U)	
-menumerateZip	accessors.html#menumerateZip.i,Tensor[T],Tensor[U],int,int	accessors: menumerateZip[T, U](t1: var Tensor[T]; t2: Tensor[U]; offset, size: int): (int, var T, U)	
+menumerateZip	accessors.html#menumerateZip.i,Tensor[T],Tensor[U],int,int	accessors: menumerateZip[T, U](t1: var Tensor[T]; t2: Tensor[U]; offset, size: int): (int,\n    var T, U)	
 axis	accessors.html#axis.i,Tensor[T],int	accessors: axis[T](t: Tensor[T]; axis: int): Tensor[T]	
 axis	accessors.html#axis.i,Tensor[T],int,int,int	accessors: axis[T](t: Tensor[T]; axis, offset, size: int): Tensor[T]	
-zipAxis	accessors.html#zipAxis.i,Tensor[T],Tensor[U],int	accessors: zipAxis[T, U](a: Tensor[T]; b: Tensor[U]; axis: int): tuple[a: Tensor[T], b: Tensor[U]]	
+zipAxis	accessors.html#zipAxis.i,Tensor[T],Tensor[U],int	accessors: zipAxis[T, U](a: Tensor[T]; b: Tensor[U]; axis: int): tuple[a: Tensor[T],\n    b: Tensor[U]]	
 enumerateAxis	accessors.html#enumerateAxis.i,Tensor[T],int	accessors: enumerateAxis[T](t: Tensor[T]; axis: int): (int, Tensor[T])	
 enumerateAxis	accessors.html#enumerateAxis.i,Tensor[T],int,int,int	accessors: enumerateAxis[T](t: Tensor[T]; axis, offset, size: int): (int, Tensor[T])	

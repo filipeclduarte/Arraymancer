@@ -95,6 +95,9 @@ function main() {
   </div>
   <div id="global-links">
     <ul class="simple">
+    <li>
+      <a href="theindex.html">Index</a>
+    </li>
     </ul>
   </div>
   <div id="searchInputDiv">
@@ -119,9 +122,9 @@ function main() {
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#NetworkSections"
-    title="NetworkSections = tuple[layers, forward: NimNode]"><wbr />Network<wbr />Sections<span class="attachedType"></span></a></li>
+    title="NetworkSections = tuple[layers, forward: NimNode]">NetworkSections</a></li>
   <li><a class="reference" href="#ModelField"
-    title="ModelField = tuple[field_name: NimNode, field_type: NimNode, init_call: NimNode]"><wbr />Model<wbr />Field<span class="attachedType"></span></a></li>
+    title="ModelField = tuple[field_name: NimNode, field_type: NimNode, init_call: NimNode]">ModelField</a></li>
   <li><a class="reference" href="#Neuromancer"
     title="Neuromancer = ref object
   topoTable*: TopoTable
@@ -132,10 +135,10 @@ function main() {
   init_proc*: NimNode
   forward_proc*: NimNode
   forward_templates*: seq[NimNode]
-  forward_asserts*: NimNode"><wbr />Neuromancer<span class="attachedType"></span></a></li>
+  forward_asserts*: NimNode">Neuromancer</a></li>
   <li><a class="reference" href="#LayerKind"
     title="LayerKind = enum
-  lkInput, lkConv2D, lkLinear, lkMaxPool2D, lkFlatten, lkGRU"><wbr />Layer<wbr />Kind<span class="attachedType"></span></a></li>
+  lkInput, lkConv2D, lkLinear, lkMaxPool2D, lkFlatten, lkGRU">LayerKind</a></li>
   <li><a class="reference" href="#LayerTopology"
     title="LayerTopology = object
   in_shape*, out_shape*: NimNode
@@ -153,40 +156,43 @@ function main() {
       gru_nb_layers*: NimNode
 
   else:
-      nil"><wbr />Layer<wbr />Topology<span class="attachedType"></span></a></li>
+      nil">LayerTopology</a></li>
   <li><a class="reference" href="#TopoTable"
-    title="TopoTable = Table[NimNode, LayerTopology]"><wbr />Topo<wbr />Table<span class="attachedType"></span></a></li>
+    title="TopoTable = Table[NimNode, LayerTopology]">TopoTable</a></li>
   <li><a class="reference" href="#TrainableLayer"
     title="TrainableLayer[TT] = concept layer
     block:
       var trainable: false
       for field in fields(layer):
         trainable = trainable or (field is Variable[TT])
-      trainable"><wbr />Trainable<wbr />Layer<span class="attachedType"></span></a></li>
+      trainable">TrainableLayer</a></li>
   <li><a class="reference" href="#Conv2DLayer"
     title="Conv2DLayer[TT] = object
   weight*: Variable[TT]
-  bias*: Variable[TT]"><wbr />Conv2DLayer<span class="attachedType"></span></a></li>
+  bias*: Variable[TT]">Conv2DLayer</a></li>
   <li><a class="reference" href="#LinearLayer"
     title="LinearLayer[TT] = object
   weight*: Variable[TT]
-  bias*: Variable[TT]"><wbr />Linear<wbr />Layer<span class="attachedType"></span></a></li>
+  bias*: Variable[TT]">LinearLayer</a></li>
   <li><a class="reference" href="#GRULayer"
     title="GRULayer[TT] = object
   W3s0*, W3sN*: Variable[TT]
   U3s*: Variable[TT]
-  bW3s*, bU3s*: Variable[TT]"><wbr />GRULayer<span class="attachedType"></span></a></li>
+  bW3s*, bU3s*: Variable[TT]">GRULayer</a></li>
   <li><a class="reference" href="#EmbeddingLayer"
     title="EmbeddingLayer[TT] = object
-  weight*: Variable[TT]"><wbr />Embedding<wbr />Layer<span class="attachedType"></span></a></li>
+  weight*: Variable[TT]">EmbeddingLayer</a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
+      <ul class="simple nested-toc-section">hash
       <li><a class="reference" href="#hash%2CNimNode"
-    title="hash(x: NimNode): Hash"><wbr />hash<span class="attachedType"></span></a></li>
+    title="hash(x: NimNode): Hash">hash,<wbr>NimNode</a></li>
+
+  </ul>
 
   </ul>
 </li>
@@ -194,6 +200,11 @@ function main() {
 </ul>
 
   </div>
+  &nbsp;&nbsp;<a
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L1"
+class="link-seesrc" target="_blank">Source</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
+
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
   
@@ -212,9 +223,9 @@ function main() {
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L12"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L12"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L12" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L12" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="ModelField"></a>
@@ -223,9 +234,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Field name, type and initialization proc
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L14"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L14"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L14" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L14" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="Neuromancer"></a>
@@ -244,9 +255,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Pathfinder that will go through the network topology and create the corresponding type, initialization and forward proc
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L17"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L17"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L17" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L17" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="LayerKind"></a>
@@ -256,9 +267,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L39"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L39"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L39" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L39" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="LayerTopology"></a>
@@ -285,9 +296,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Describe a layer topology
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L43"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L43"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L43" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L43" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="TopoTable"></a>
@@ -296,9 +307,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L59"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L59"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L59" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L59" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="TrainableLayer"></a>
@@ -312,9 +323,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L63"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L63"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L63" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L63" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="Conv2DLayer"></a>
@@ -326,9 +337,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L70"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L70"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L70" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L70" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="LinearLayer"></a>
@@ -340,9 +351,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L73"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L73"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L73" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L73" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="GRULayer"></a>
@@ -355,9 +366,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L76"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L76"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L76" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L76" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <a id="EmbeddingLayer"></a>
@@ -368,9 +379,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L80"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L80"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L80" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L80" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -384,9 +395,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/mratsim/arraymancer/tree/master/src/nn_dsl/dsl_types.nim#L83"
+href="https://github.com/mratsim/arraymancer/tree/master/src/arraymancer/nn_dsl/dsl_types.nim#L83"
 class="link-seesrc" target="_blank">Source</a>
-<a href="https://github.com/mratsim/arraymancer/edit/master/src/nn_dsl/dsl_types.nim#L83" class="link-seesrc" target="_blank" >Edit</a>
+<a href="https://github.com/mratsim/arraymancer/edit/master/src/arraymancer/nn_dsl/dsl_types.nim#L83" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -399,7 +410,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-04-19 14:10:45 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-12-27 09:28:15 UTC</small>
       </div>
     </div>
   </div>
@@ -418,6 +429,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="accessors_macros_syntax.html">accessors_macros_syntax</a></li>
 <li><a href="accessors_macros_write.html">accessors_macros_write</a></li>
 <li><a href="aggregate.html">aggregate</a></li>
+<li><a href="algorithms.html">algorithms</a></li>
 <li><a href="blas_l3_gemm.html">blas_l3_gemm</a></li>
 <li><a href="cublas.html">cublas</a></li>
 <li><a href="cuda.html">cuda</a></li>
@@ -441,7 +453,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="lapack.html">lapack</a></li>
 <li><a href="math_functions.html">math_functions</a></li>
 <li><a href="memory_optimization_hints.html">memory_optimization_hints</a></li>
-<li><a href="metadataArray.html">metadataArray</a></li>
 <li><a href="naive_l2_gemv.html">naive_l2_gemv</a></li>
 <li><a href="opencl_backend.html">opencl_backend</a></li>
 <li><a href="opencl_global_state.html">opencl_global_state</a></li>
@@ -465,7 +476,7 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="p_checks.html">p_checks</a></li>
 <li><a href="p_complex.html">p_complex</a></li>
 <li><a href="p_display.html">p_display</a></li>
-<li><a href="p_init_cpu.html">p_init_cpu</a></li>
+<li><a href="p_empty_tensors.html">p_empty_tensors</a></li>
 <li><a href="p_init_cuda.html">p_init_cuda</a></li>
 <li><a href="p_init_opencl.html">p_init_opencl</a></li>
 <li><a href="p_kernels_interface_cuda.html">p_kernels_interface_cuda</a></li>
@@ -477,7 +488,6 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="shapeshifting_cuda.html">shapeshifting_cuda</a></li>
 <li><a href="shapeshifting_opencl.html">shapeshifting_opencl</a></li>
 <li><a href="syntactic_sugar.html">syntactic_sugar</a></li>
-<li><a href="tensor.html">tensor</a></li>
 <li><a href="tensor_cuda.html">tensor_cuda</a></li>
 <li><a href="tensor_opencl.html">tensor_opencl</a></li>
 <li><a href="ufunc.html">ufunc</a></li>
@@ -517,11 +527,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="decomposition.html">Eigenvalue decomposition</a></li>
 <li><a href="decomposition_lapack.html">decomposition_lapack</a></li>
 <li><a href="decomposition_rand.html">Randomized Truncated SVD</a></li>
+<li><a href="distributions.html">distributions</a></li>
 <li><a href="init_colmajor.html">init_colmajor</a></li>
+<li><a href="kde.html">kde</a></li>
 <li><a href="kmeans.html">K-Means</a></li>
 <li><a href="least_squares.html">Least squares solver</a></li>
 <li><a href="least_squares_lapack.html">least_squares_lapack</a></li>
-<li><a href="linear_algebra.html">linear_algebra</a></li>
 <li><a href="linear_systems.html">Linear systems solver</a></li>
 <li><a href="overload.html">overload</a></li>
 <li><a href="pca.html">Principal Component Analysis (PCA)</a></li>
@@ -562,7 +573,6 @@ class="link-seesrc" target="_blank">Source</a>
           <li><a href="conv.html">conv</a></li>
 <li><a href="cudnn.html">cudnn</a></li>
 <li><a href="cudnn_conv_interface.html">cudnn_conv_interface</a></li>
-<li><a href="nn_primitives.html">nn_primitives</a></li>
 <li><a href="nnp_activation.html">Activations</a></li>
 <li><a href="nnp_conv2d_cudnn.html">Convolution 2D - CuDNN</a></li>
 <li><a href="nnp_convolution.html">Convolution 2D</a></li>
@@ -589,6 +599,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="ast_utils.html">ast_utils</a></li>
 <li><a href="compiler_optim_hints.html">compiler_optim_hints</a></li>
 <li><a href="cpuinfo_x86.html">cpuinfo_x86</a></li>
+<li><a href="datatypes.html">datatypes</a></li>
+<li><a href="deprecate.html">deprecate</a></li>
+<li><a href="dynamic_stack_arrays.html">dynamic_stack_arrays</a></li>
+<li><a href="foreach.html">foreach</a></li>
+<li><a href="foreach_common.html">foreach_common</a></li>
+<li><a href="foreach_staged.html">foreach_staged</a></li>
 <li><a href="functional.html">functional</a></li>
 <li><a href="gemm.html">gemm</a></li>
 <li><a href="gemm_packing.html">gemm_packing</a></li>
@@ -606,11 +622,12 @@ class="link-seesrc" target="_blank">Source</a>
 <li><a href="gemm_ukernel_sse4_1.html">gemm_ukernel_sse4_1</a></li>
 <li><a href="gemm_utils.html">gemm_utils</a></li>
 <li><a href="global_config.html">global_config</a></li>
+<li><a href="initialization.html">initialization</a></li>
 <li><a href="math_ops_fusion.html">math_ops_fusion</a></li>
 <li><a href="memory.html">memory</a></li>
 <li><a href="nested_containers.html">nested_containers</a></li>
-<li><a href="nlp.html">nlp</a></li>
 <li><a href="openmp.html">openmp</a></li>
+<li><a href="p_raw_buffer_access.html">p_raw_buffer_access</a></li>
 <li><a href="sequninit.html">sequninit</a></li>
 <li><a href="simd.html">simd</a></li>
 <li><a href="tokenizers.html">tokenizers</a></li>

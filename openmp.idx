@@ -1,8 +1,28 @@
+omp_suffix	openmp.html#omp_suffix,staticbool	openmp: omp_suffix(genNew: static bool = false): string	
 omp_set_num_threads	openmp.html#omp_set_num_threads.t,cint	openmp: omp_set_num_threads(x: cint)	
 omp_get_num_threads	openmp.html#omp_get_num_threads.t	openmp: omp_get_num_threads(): cint	
 omp_get_max_threads	openmp.html#omp_get_max_threads.t	openmp: omp_get_max_threads(): cint	
 omp_get_thread_num	openmp.html#omp_get_thread_num.t	openmp: omp_get_thread_num(): cint	
-omp_parallel_countup	openmp.html#omp_parallel_countup.t,untyped,Natural,untyped	openmp: omp_parallel_countup(i: untyped; size: Natural; body: untyped): untyped	
-omp_parallel_forup	openmp.html#omp_parallel_forup.t,untyped,Natural,Natural,untyped	openmp: omp_parallel_forup(i: untyped; start, size: Natural; body: untyped): untyped	
-omp_parallel_blocks	openmp.html#omp_parallel_blocks.t,untyped,untyped,Natural,untyped	openmp: omp_parallel_blocks(block_offset, block_size: untyped; size: Natural; body: untyped): untyped	
-omp_parallel_reduce_blocks	openmp.html#omp_parallel_reduce_blocks.t,T,untyped,untyped,Natural,Natural,untyped,untyped,untyped	openmp: omp_parallel_reduce_blocks[T](reduced: T; block_offset, block_size: untyped;\n                              size, weight: Natural;\n                              op_final, op_init, op_middle: untyped): untyped	
+omp_set_nested	openmp.html#omp_set_nested.t,cint	openmp: omp_set_nested(x: cint)	
+omp_get_nested	openmp.html#omp_get_nested.t	openmp: omp_get_nested(): cint	
+OMP_MEMORY_BOUND_GRAIN_SIZE	openmp.html#OMP_MEMORY_BOUND_GRAIN_SIZE	openmp: OMP_MEMORY_BOUND_GRAIN_SIZE	
+OMP_NON_CONTIGUOUS_SCALE_FACTOR	openmp.html#OMP_NON_CONTIGUOUS_SCALE_FACTOR	openmp: OMP_NON_CONTIGUOUS_SCALE_FACTOR	
+attachGC	openmp.html#attachGC.t	openmp: attachGC(): untyped	
+detachGC	openmp.html#detachGC.t	openmp: detachGC(): untyped	
+omp_parallel	openmp.html#omp_parallel.t,untyped	openmp: omp_parallel(body: untyped): untyped	
+omp_parallel_if	openmp.html#omp_parallel_if.t,bool,untyped	openmp: omp_parallel_if(condition: bool; body: untyped)	
+omp_for	openmp.html#omp_for.t,untyped,Natural,staticbool,staticbool,untyped	openmp: omp_for(index: untyped; length: Natural; use_simd, nowait: static bool;\n        body: untyped)	
+omp_parallel_for	openmp.html#omp_parallel_for.t,untyped,Natural,staticNatural,staticbool,untyped	openmp: omp_parallel_for(index: untyped; length: Natural;\n                 omp_grain_size: static Natural; use_simd: static bool;\n                 body: untyped)	
+omp_parallel_for_default	openmp.html#omp_parallel_for_default.t,untyped,Natural,untyped	openmp: omp_parallel_for_default(index: untyped; length: Natural; body: untyped)	
+omp_chunks	openmp.html#omp_chunks.t,Natural,untyped,untyped,untyped	openmp: omp_chunks(omp_size: Natural; chunk_offset, chunk_size: untyped; body: untyped): untyped	
+omp_parallel_chunks	openmp.html#omp_parallel_chunks.t,Natural,untyped,untyped,staticNatural,untyped	openmp: omp_parallel_chunks(length: Natural; chunk_offset, chunk_size: untyped;\n                    omp_grain_size: static Natural; body: untyped): untyped	
+omp_parallel_chunks_default	openmp.html#omp_parallel_chunks_default.t,Natural,untyped,untyped,untyped	openmp: omp_parallel_chunks_default(length: Natural; chunk_offset, chunk_size: untyped;\n                            body: untyped): untyped	
+omp_critical	openmp.html#omp_critical.t,untyped	openmp: omp_critical(body: untyped): untyped	
+omp_master	openmp.html#omp_master.t,untyped	openmp: omp_master(body: untyped): untyped	
+omp_single	openmp.html#omp_single.t,untyped	openmp: omp_single(body: untyped): untyped	
+omp_single_nowait	openmp.html#omp_single_nowait.t,untyped	openmp: omp_single_nowait(body: untyped): untyped	
+omp_barrier	openmp.html#omp_barrier.t	openmp: omp_barrier(): untyped	
+omp_task	openmp.html#omp_task.t,staticstring,untyped	openmp: omp_task(annotation: static string; body: untyped): untyped	
+omp_taskwait	openmp.html#omp_taskwait.t	openmp: omp_taskwait(): untyped	
+omp_taskloop	openmp.html#omp_taskloop.t,untyped,Natural,staticstring,untyped	openmp: omp_taskloop(index: untyped; length: Natural; annotation: static string;\n             body: untyped)	
+omp_flush	openmp.html#omp_flush.m,varargs[untyped]	openmp: omp_flush(variables: varargs[untyped]): untyped	
